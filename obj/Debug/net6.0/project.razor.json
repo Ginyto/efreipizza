@@ -8,138 +8,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 1681926049,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.Counter",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.Counter"
-        }
-      },
-      {
-        "HashCode": 350799532,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.Counter",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "efreipizza.Pages.Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.Counter",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 106842576,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.FetchData",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.FetchData"
-        }
-      },
-      {
-        "HashCode": 1025268356,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.FetchData",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "efreipizza.Pages.FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.FetchData",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1453237370,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.Index",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.Index"
-        }
-      },
-      {
-        "HashCode": -1703194096,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.Pages.Index",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "efreipizza.Pages.Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Pages.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1779285207,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.App",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.App"
-        }
-      },
-      {
-        "HashCode": -845862027,
-        "Kind": "Components.Component",
-        "Name": "efreipizza.App",
-        "AssemblyName": "efreipizza",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "efreipizza.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.App",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1903396428,
         "Kind": "Components.Component",
         "Name": "efreipizza.Shared.MainLayout",
@@ -269,55 +137,101 @@
         }
       },
       {
-        "HashCode": -162042733,
+        "HashCode": 1681926049,
         "Kind": "Components.Component",
-        "Name": "efreipizza.Shared.SurveyPrompt",
+        "Name": "efreipizza.Pages.Counter",
         "AssemblyName": "efreipizza",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
+            "TagName": "Counter"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Shared.SurveyPrompt"
+          "Common.TypeName": "efreipizza.Pages.Counter"
         }
       },
       {
-        "HashCode": 1337246498,
+        "HashCode": 350799532,
         "Kind": "Components.Component",
-        "Name": "efreipizza.Shared.SurveyPrompt",
+        "Name": "efreipizza.Pages.Counter",
         "AssemblyName": "efreipizza",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "efreipizza.Shared.SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
+            "TagName": "efreipizza.Pages.Counter"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "efreipizza.Shared.SurveyPrompt",
+          "Common.TypeName": "efreipizza.Pages.Counter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1453237370,
+        "Kind": "Components.Component",
+        "Name": "efreipizza.Pages.Index",
+        "AssemblyName": "efreipizza",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "efreipizza.Pages.Index"
+        }
+      },
+      {
+        "HashCode": -1703194096,
+        "Kind": "Components.Component",
+        "Name": "efreipizza.Pages.Index",
+        "AssemblyName": "efreipizza",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "efreipizza.Pages.Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "efreipizza.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1779285207,
+        "Kind": "Components.Component",
+        "Name": "efreipizza.App",
+        "AssemblyName": "efreipizza",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "efreipizza.App"
+        }
+      },
+      {
+        "HashCode": -845862027,
+        "Kind": "Components.Component",
+        "Name": "efreipizza.App",
+        "AssemblyName": "efreipizza",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "efreipizza.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "efreipizza.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -13657,16 +13571,6 @@
       "FilePath": "/Users/gianlucca/programmation/efreipizza/_Imports.razor",
       "TargetPath": "_Imports.razor",
       "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "/Users/gianlucca/programmation/efreipizza/Pages/FetchData.razor",
-      "TargetPath": "Pages\\FetchData.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/Users/gianlucca/programmation/efreipizza/Shared/SurveyPrompt.razor",
-      "TargetPath": "Shared\\SurveyPrompt.razor",
-      "FileKind": "component"
     },
     {
       "FilePath": "/Users/gianlucca/programmation/efreipizza/Shared/MainLayout.razor",
