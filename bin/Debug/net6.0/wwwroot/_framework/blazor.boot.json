@@ -196,13 +196,13 @@
       "mscorlib.dll": "sha256-MnMyZHtcymf0sLxXeFBbQZVsdNdxT0GXJaa9t3ZdSek=",
       "netstandard.dll": "sha256-+SGdnDhVMiZ9hq0EsYwJ+mcK0odf3bAtXnSKLorGDCs=",
       "System.Private.CoreLib.dll": "sha256-mqfalNg3wC8XHlyA+j5ioNcnc0kt4prNudKdyJoaYaU=",
-      "efreipizza.dll": "sha256-p6rEubxl7HU45rx+aHUhFvDGYh4bXEZy\/0SqYQVb160="
+      "efreipizza.dll": "sha256-iEYoKU0CT6QWqbG21ISJUwX5yHNVgPUYhuW\/9tluDrE="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "efreipizza.pdb": "sha256-+VKAVeS8yX+EOefHUpAIPP+bkRFh4NpJksT4lQ8S\/cI="
+      "efreipizza.pdb": "sha256-UJUjvg4ZbjKvmwk3+KDOWZxdx22CsiIHFse8+tcdTEM="
     },
     "runtime": {
       "dotnet.6.0.9.uyercn7ft1.js": "sha256-Azk5sbYFVo84h8NpIst9roIPGLH2y8ewQ9SY\/sUHvgs=",
