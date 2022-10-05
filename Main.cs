@@ -1,10 +1,11 @@
-﻿﻿namespace Projet {
+﻿using System;
+﻿namespace Projet {
 
     class Program
     {
         static void Main(string[] args)
         {
-            Payment UnPayment;
+            /** Payment UnPayment;
             UnPayment= new Payment("nom","prenom","typedepayemnt",52);
             Console.WriteLine(UnPayment.MakePayment());
            
@@ -27,6 +28,22 @@
             jimmy.PrintClient();
 
             Console.WriteLine(coca.Price);
+**/
+            
+            string Name = Console.ReadLine();
+
+            string FirstName = Console.ReadLine();
+
+            int OrderNumber = Convert.ToInt32(Console.ReadLine());
+
+            string DateOfFirstCommand = Console.ReadLine();
+
+            
+
+             
+            Client UnClient = new Client(Name,FirstName,OrderNumber,DateOfFirstCommand);
+            UnClient.PrintClient();
+
 
         }
     }

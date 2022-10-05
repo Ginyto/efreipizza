@@ -1,6 +1,4 @@
 
-
-using Internal;
 using System;
 namespace Projet
 {
