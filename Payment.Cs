@@ -19,7 +19,7 @@ namespace Projet
             
         }
 
-        public void PrintDrink()
+        public void PrintPayment()
     {
         Console.WriteLine($"ClientName: {ClientName}");
         Console.WriteLine($"ClientFirstName: {ClientFirstName}");
