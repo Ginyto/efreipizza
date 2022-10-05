@@ -1,14 +1,28 @@
-﻿Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
-Drink coca = new Drink("Coca-cola", 25, 3.99);
-Client jimmy = new Client("Jimmmy", "Potard", 015, "4 mars 2022");
+﻿namespace Projet 
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
+            Drink coca = new Drink("Coca-cola", 25, 3.99);
+            Client jimmy = new Client("Jimmmy", "Potard", 015, "4 mars 2022");
 
-coca.PrintDrink();
+            coca.PrintDrink();
 
-coca.Price = 2.55;
+            coca.Price = 2.55;
 
-coca.PrintDrink();
+            coca.PrintDrink();
 
 
-jimmy.PrintClient();
+            jimmy.PrintClient();
 
-Console.WriteLine(coca.Price);
+            Console.WriteLine(coca.Price);
+
+        }
+    }
+}
+
+
+
