@@ -1,4 +1,7 @@
-*/**/bin/Debug
-*/**/bin/Release
-*/**/obj/Debug
-*/**/obj/Release
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/

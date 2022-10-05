@@ -1,9 +1,19 @@
-﻿Pizza margherita = new Pizza("Margherita", 7.99, 32, "Tomato sauce, mozzarella, basil");
+﻿Console.WriteLine("Hello there!");
 
-Drink coca = new Drink("Coca-cola,", 50, 3.50);
+Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
 
+<<<<<<< HEAD
 coca.PrintDrink();
 
 coca.Price = 2.55;
 
 coca.PrintDrink();
+=======
+Pizza pepperoni = new Pizza("Pepperoni", 10, 10, "Tomato sauce, Mozzarella, Pepperoni");
+
+Pizza hawaiian = new Pizza("Hawaiian", 10, 10, "Tomato sauce, Mozzarella, Ham, Pineapple");
+
+margarita.PrintPizza();
+pepperoni.PrintPizza();
+hawaiian.PrintPizza();
+>>>>>>> 01c1001529f06fa1b5f18f98a0195f9a080b22ec
