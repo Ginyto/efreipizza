@@ -1,6 +1,4 @@
 ﻿
-﻿
-
 namespace Projet
 {
     class Program
@@ -9,8 +7,8 @@ namespace Projet
         {
             Payment UnPayment;
             UnPayment= new Payment("nom","prenom","typedepayemnt",52);
-
-            Console.WriteLine("Hello there!");
+            Console.WriteLine(UnPayment.MakePayment());
+;
 
 Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
 

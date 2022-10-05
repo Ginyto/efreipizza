@@ -30,7 +30,6 @@ C:\Users\lineo\OneDrive\Bureau\efreipizza-1\obj\Debug\net6.0\Entity.pdb
 C:\Users\lineo\OneDrive\Bureau\efreipizza-1\obj\Debug\net6.0\Entity.genruntimeconfig.cache
 C:\Users\lineo\OneDrive\Bureau\efreipizza-1\obj\Debug\net6.0\ref\Entity.dll
 =======
-<<<<<<< HEAD
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
@@ -46,6 +45,5 @@ C:\Users\tib\Desktop\M1\C#\efreipizza-1\bin\Debug\net6.0\Entity.dll
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\bin\Debug\net6.0\Entity.pdb
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\obj\Debug\net6.0\Entity.genruntimeconfig.cache
 C:\Users\tib\Desktop\M1\C#\efreipizza-1\obj\Debug\net6.0\ref\Entity.dll
-=======
 >>>>>>> 01c1001529f06fa1b5f18f98a0195f9a080b22ec
 >>>>>>> 77adebdee2790bf6de1cb17d68b702aa20b47f49
