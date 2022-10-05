@@ -3,3 +3,7 @@
 Drink coca = new Drink("Coca-cola,", 50, 3.50);
 
 coca.PrintDrink();
+
+coca.Price = 2.55;
+
+coca.PrintDrink();
