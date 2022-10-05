@@ -15,7 +15,7 @@ class Drink
     public void PrintDrink()
     {
         Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Price: {Volume}");
+        Console.WriteLine($"Volume: {Volume}");
         Console.WriteLine($"Price: {Price}");   
     }
 

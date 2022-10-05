@@ -1,4 +1,5 @@
 ﻿
+﻿
 namespace Projet
 {
     class Program
@@ -8,24 +9,35 @@ namespace Projet
             Payment UnPayment;
             UnPayment= new Payment("nom","prenom","typedepayemnt",52);
             Console.WriteLine(UnPayment.MakePayment());
-;
-
-Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
+            Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
 
 
-coca.PrintDrink();
 
-coca.Price = 2.55;
+            ﻿Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
+            Drink coca = new Drink("Coca-cola", 25, 3.99);
+            Client jimmy = new Client("Jimmmy", "Potard", 015, "4 mars 2022");
 
-coca.PrintDrink();
 
-Pizza pepperoni = new Pizza("Pepperoni", 10, 10, "Tomato sauce, Mozzarella, Pepperoni");
+            coca.PrintDrink();
 
-Pizza hawaiian = new Pizza("Hawaiian", 10, 10, "Tomato sauce, Mozzarella, Ham, Pineapple");
+            coca.Price = 2.55;
 
-margarita.PrintPizza();
-pepperoni.PrintPizza();
-hawaiian.PrintPizza();
+            coca.PrintDrink();
+
+
+            Pizza pepperoni = new Pizza("Pepperoni", 10, 10, "Tomato sauce, Mozzarella, Pepperoni");
+
+
+
+
+            margarita.PrintPizza();
+            pepperoni.PrintPizza();
+            hawaiian.PrintPizza();
+            jimmy.PrintClient();
+
+            Console.WriteLine(coca.Price);
+
+
 
 
 
@@ -33,3 +45,5 @@ hawaiian.PrintPizza();
     }
 
 }
+
+
