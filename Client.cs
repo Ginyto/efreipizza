@@ -1,4 +1,9 @@
+<<<<<<< HEAD
    class Client {
+=======
+
+class Client {
+>>>>>>> 31305812100d1819bcb8a670dcb8768811dc308c
 
     public string Name { get; set; }
     public string FirstName { get; set; }
@@ -24,3 +29,4 @@
 
 
 }
+
