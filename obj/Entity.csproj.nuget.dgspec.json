@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\lineo\\OneDrive\\Bureau\\efreipizza-1\\Entity.csproj": {}
   },
   "projects": {
@@ -16,6 +17,22 @@
         "configFilePaths": [
           "C:\\Users\\lineo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj",
+        "projectName": "Entity",
+        "projectPath": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj",
+        "packagesPath": "C:\\Users\\tib\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tib\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 77adebdee2790bf6de1cb17d68b702aa20b47f49
         ],
         "originalTargetFrameworks": [
           "net6.0"

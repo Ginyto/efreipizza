@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "VZYIwDt4NL7IyJt8FIrP2sKebO5kOnGuNOA7IU6TpBBOG+FyPKuZJ3jcp9gqldgfn9T336VnxX0YDqBICGva5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\lineo\\OneDrive\\Bureau\\efreipizza-1\\Entity.csproj",
+=======
+  "dgSpecHash": "MhlDh49nBmyZvX+WM9/P+lpHnovXKUBHMUKct+XpZCuYjZDc0jbjwVNLpOU1/5otxI/zj6uXKkK1VLFEgvxNJw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj",
+>>>>>>> 77adebdee2790bf6de1cb17d68b702aa20b47f49
   "expectedPackageFiles": [],
   "logs": []
 }
