@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj": {}
+    "/Users/gianlucca/programmation/efreipizza/Entity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj": {
+    "/Users/gianlucca/programmation/efreipizza/Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj",
+        "projectUniqueName": "/Users/gianlucca/programmation/efreipizza/Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\Entity.csproj",
-        "packagesPath": "C:\\Users\\tib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tib\\Desktop\\M1\\C#\\efreipizza-1\\obj\\",
+        "projectPath": "/Users/gianlucca/programmation/efreipizza/Entity.csproj",
+        "packagesPath": "/Users/gianlucca/.nuget/packages/",
+        "outputPath": "/Users/gianlucca/programmation/efreipizza/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tib\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/gianlucca/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }
