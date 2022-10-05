@@ -9,7 +9,7 @@ namespace Projet
         public int CookerNumber { get; set; }
        
 
-        public Cooker(string CookerNumber)
+        public Cooker(int CookerNumber)
         {
             this.CookerNumber=CookerNumber;
     
