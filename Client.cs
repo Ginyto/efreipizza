@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 class Client {
 
     public string Name { get; set; }
@@ -27,4 +25,4 @@ class Client {
 
 
 }
->>>>>>> c2925a1d3f8833b2b844cd6484c17480db264315
+

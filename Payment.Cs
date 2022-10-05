@@ -10,7 +10,7 @@ namespace Projet
         private string TypeOfPayment { get; set; }
         private double PriceOrder { get; set; }
 
-        public Payment(string ClientName, string ClientFirstName, string TypeOfPayment,int PriceOrder)
+        public Payment(string ClientName, string ClientFirstName, string TypeOfPayment,double PriceOrder)
         {
             this.ClientName=ClientName;
             this.ClientFirstName=ClientFirstName;
@@ -26,7 +26,7 @@ namespace Projet
         Console.WriteLine($"TypeOfPayment: {TypeOfPayment}");   
         Console.WriteLine($"PriceOrder: {PriceOrder}");   
     }
-     public int MakePayment(){
+     public double MakePayment(){
         return PriceOrder;
 
      }
