@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 ﻿using System;
+=======
+>>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
 ﻿namespace Projet {
 
     class Program
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             /** Payment UnPayment;
+=======
+           /** Payment UnPayment;
+>>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
             UnPayment= new Payment("nom","prenom","typedepayemnt",52);
             Console.WriteLine(UnPayment.MakePayment());
            
-            ﻿Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
+            Pizza margarita = new Pizza("Margarita", 10, 10, "Tomato sauce, Mozzarella");
             Drink coca = new Drink("Coca-cola", 25, 3.99);
             Client jimmy = new Client("Jimmmy", "Potard", 015, "4 mars 2022");
 
@@ -27,6 +34,7 @@
             
             jimmy.PrintClient();
 
+<<<<<<< HEAD
             Console.WriteLine(coca.Price);
 **/
             
@@ -43,6 +51,11 @@
              
             Client UnClient = new Client(Name,FirstName,OrderNumber,DateOfFirstCommand);
             UnClient.PrintClient();
+=======
+            Console.WriteLine(coca.Price);   **/
+
+            Client test = new Client();
+>>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
 
 
         }
