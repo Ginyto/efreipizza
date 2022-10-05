@@ -3,9 +3,9 @@ class Client {
     public string Name { get; set; }
     public string FirstName { get; set; }
     public int OrderNumber { get; set; }
-    public DateOnly DateOfFirstCommand { get; set; }
+    public string DateOfFirstCommand { get; set; }
 
-    public Client(string name, string firstname, int ordernumber, DateOnly dateoffirstcommand)
+    public Client(string name, string firstname, int ordernumber, string dateoffirstcommand)
     {
         Name = name;
         FirstName = firstname;
