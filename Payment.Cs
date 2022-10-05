@@ -5,10 +5,10 @@ namespace Projet
 {
     public class Payment
     {
-        private string ClientName { get; set; }
-        private string ClientFirstName { get; set; }
-        private string TypeOfPayment { get; set; }
-        private double PriceOrder { get; set; }
+        public string ClientName { get; set; }
+        public string ClientFirstName { get; set; }
+        public string TypeOfPayment { get; set; }
+        public double PriceOrder { get; set; }
 
         public Payment(string ClientName, string ClientFirstName, string TypeOfPayment,double PriceOrder)
         {
