@@ -18,7 +18,7 @@ class Pizza
     {
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine($"Price: {Price}");
-        Console.WriteLine($"Price: {Size}");
+        Console.WriteLine($"Size: {Size}");
         Console.WriteLine($"Description: {Description}");
     }
 
