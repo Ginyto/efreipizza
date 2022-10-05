@@ -1,18 +1,20 @@
-using Systeme;
-using System.Collections.Generic;
-using System.ling;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Projet{
-    public class Payment{
-        String ClientName;
-        String ClientFirstName;
-        String TypeOfPayment;
-        int PriceOrder;
-        
-        public Client(){
-            console.WriteLine("ccCCOCOCO")
+
+namespace Projet
+{
+    public class Payment
+    {
+        private string ClientName;
+        private string ClientFirstName;
+        private string TypeOfPayment;
+        private int PriceOrder;
+
+        public Payment(string ClientName, string ClientFirstName, string TypeOfPayment,int PriceOrder)
+        {
+            this.ClientName=ClientName;
+            this.ClientFirstName=ClientFirstName;
+            this.TypeOfPayment=TypeOfPayment;
+            this.PriceOrder=PriceOrder;
             
         }
     }

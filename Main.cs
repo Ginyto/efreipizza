@@ -1,4 +1,14 @@
-﻿Pizza margherita = new Pizza("Margherita", 7.99, "Tomato sauce, mozzarella, basil");
+﻿
 
+namespace Projet
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Payment UnPayment;
+            UnPayment= new Payment("nom","prenom","typedepayemnt",52);
 
-margherita.PrintPizza();
+        }
+    }
+}
