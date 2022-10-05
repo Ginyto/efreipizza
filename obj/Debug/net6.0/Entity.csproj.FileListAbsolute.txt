@@ -3,3 +3,13 @@
 /Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.AssemblyInfoInputs.cache
 /Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.AssemblyInfo.cs
 /Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.csproj.CoreCompileInputs.cache
+/Users/gianlucca/programmation/efreipizza/bin/Debug/net6.0/Entity
+/Users/gianlucca/programmation/efreipizza/bin/Debug/net6.0/Entity.deps.json
+/Users/gianlucca/programmation/efreipizza/bin/Debug/net6.0/Entity.runtimeconfig.json
+/Users/gianlucca/programmation/efreipizza/bin/Debug/net6.0/Entity.dll
+/Users/gianlucca/programmation/efreipizza/bin/Debug/net6.0/Entity.pdb
+/Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.dll
+/Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/refint/Entity.dll
+/Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.pdb
+/Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/Entity.genruntimeconfig.cache
+/Users/gianlucca/programmation/efreipizza/obj/Debug/net6.0/ref/Entity.dll
