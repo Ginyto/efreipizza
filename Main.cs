@@ -1,7 +1,5 @@
-﻿
-﻿
-namespace Projet
-{
+﻿﻿namespace Projet {
+
     class Program
     {
         static void Main(string[] args)
@@ -47,3 +45,5 @@ namespace Projet
 }
 
 
+            
+            
