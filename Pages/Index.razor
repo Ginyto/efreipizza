@@ -9,10 +9,21 @@
 
 <div> @margherita.GetPizza() </div>
 
+<button @onclick ="Click" > clique sur moi </button> -> @click
+
+
 
 @code {
 
     Pizza margherita = new Pizza("Margherita", 8.5, 1, "Tomato, cheese, basil");
+
+    public int click = 0;
+
+    public void Click() {
+
+        click ++;
+
+    }
 
 
 }
