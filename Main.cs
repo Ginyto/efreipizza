@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-﻿using System;
-=======
->>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
-﻿namespace Projet {
+﻿﻿namespace Projet {
 
     class Program
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             /** Payment UnPayment;
-=======
-           /** Payment UnPayment;
->>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
             UnPayment= new Payment("nom","prenom","typedepayemnt",52);
             Console.WriteLine(UnPayment.MakePayment());
            
@@ -34,7 +26,7 @@
             
             jimmy.PrintClient();
 
-<<<<<<< HEAD
+
             Console.WriteLine(coca.Price);
 **/
             
@@ -46,17 +38,8 @@
 
             string DateOfFirstCommand = Console.ReadLine();
 
-            
-
-             
             Client UnClient = new Client(Name,FirstName,OrderNumber,DateOfFirstCommand);
             UnClient.PrintClient();
-=======
-            Console.WriteLine(coca.Price);   **/
-
-            Client test = new Client();
->>>>>>> d528322f96ce96dc6416c0c6a95bde49b28b5b7d
-
 
         }
     }
