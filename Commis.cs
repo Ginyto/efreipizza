@@ -25,5 +25,5 @@ namespace Projet
     public void SendPayementMessage(){}
     public void SendClosedCommandMeesage(){}
 
-}
+    }
 }
