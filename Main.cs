@@ -28,7 +28,11 @@
 
             Console.WriteLine(coca.Price);   **/
 
-            Client test = new Client();
+            // Client test = new Client();
+
+            Command command = new Command("Jimmmy", "Potard", "Pizza", 10);
+
+            command.PrintCommand();
 
 
         }

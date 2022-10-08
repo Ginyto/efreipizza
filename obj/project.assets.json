@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\lineo\\.nuget\\packages\\": {}
+    "/Users/gianlucca/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lineo\\OneDrive\\Bureau\\efreipizza-1\\Entity.csproj",
+      "projectUniqueName": "/Users/gianlucca/programmation/efreipizza/Entity.csproj",
       "projectName": "Entity",
-      "projectPath": "C:\\Users\\lineo\\OneDrive\\Bureau\\efreipizza-1\\Entity.csproj",
-      "packagesPath": "C:\\Users\\lineo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lineo\\OneDrive\\Bureau\\efreipizza-1\\obj\\",
+      "projectPath": "/Users/gianlucca/programmation/efreipizza/Entity.csproj",
+      "packagesPath": "/Users/gianlucca/.nuget/packages/",
+      "outputPath": "/Users/gianlucca/programmation/efreipizza/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lineo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/gianlucca/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }
