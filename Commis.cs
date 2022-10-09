@@ -1,29 +1,31 @@
-
-using System;
 namespace Projet
 {
-    public class Commis
+    /// <summary>
+    /// Commis capable de prendre de gerer la pizzaria entiere
+    /// </summary>
+    public class Commis : User
     {
-        public string name { get; set; }
-       
-
-        public Commis(string name)
+        /// <summary>
+        /// Constructeur du commis
+        /// </summary>
+        /// <param name="name">Nom</param>
+        /// <param name="firstname">Prenom</param>
+        /// <returns>Un commis</returns>
+        public Commis(string name, string firstname, int id) : base(name, firstname, id)
         {
-            this.name=name;
-    
+
         }
 
-        public void PrintCommis()
-    {
-        Console.WriteLine($"CookerNumber: {name}");
-       
-    }
-     public void TakeOrder(){}
-    public void SendClientConfirmationMessage(){}
-    public void SendPizzaConfirmationMessage(){}
-    public void SendOpenOrderMessage(){}
-    public void SendPayementMessage(){}
-    public void SendClosedCommandMeesage(){}
+        public override void UpdateUser(string name, string firstname)
+        {
+            Name = name;
+            FirstName = firstname;
+        }
+
 
     }
+
+
+    
+
 }

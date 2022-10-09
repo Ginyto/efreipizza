@@ -1,28 +1,21 @@
-class Client {
+namespace Projet {
 
-    public string Name { get; set; }
-    public string FirstName { get; set; }
-    public int OrderNumber { get; set; }
-    public string DateOfFirstCommand { get; set; }
-
-    public Client(string name, string firstname, int ordernumber, string dateoffirstcommand)
+    public class Client : User
     {
-        Name = name;
-        FirstName = firstname;
-        OrderNumber = ordernumber;
-        DateOfFirstCommand = dateoffirstcommand;
+        
+
+        public Client(string name, string firstname, int id) : base(name, firstname, id)
+        {
+            
+        }
+
+        public override void UpdateUser(string name, string firstname)
+        {
+            Name = name;
+            FirstName = firstname;
+        }
+
     }
-
-    public void PrintClient()
-    {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"FirstName: {FirstName}");
-        Console.WriteLine($"OrderNumber: {OrderNumber}");
-        Console.WriteLine($"DateOfFirstCommand: {DateOfFirstCommand}");
-    }
-
-
-
 
 }
 
