@@ -27,6 +27,13 @@ namespace Projet
 
 
         /// <summary>
+        /// Liste des commandes
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList commands = new ArrayList();
+
+
+        /// <summary>
         /// Constructeur de la pizzeria
         /// </summary>
         /// <param name="name"></param>
