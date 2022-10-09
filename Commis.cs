@@ -11,15 +11,25 @@ namespace Projet
         /// <param name="name">Nom</param>
         /// <param name="firstname">Prenom</param>
         /// <returns>Un commis</returns>
-        public Commis(string name, string firstname, int id) : base(name, firstname, id)
+        public Commis(int id) : base(id)
         {
 
         }
 
-        public override void UpdateUser(string name, string firstname)
+        public Commis(int id, string name, string firstname) : base(id, name, firstname)
         {
-            Name = name;
-            FirstName = firstname;
+
+        }
+
+        public override void UpdateUser()
+        {
+
+        }
+
+
+        public override void PrintUser()
+        {
+            Console.WriteLine($"Commis: {Name} {FirstName} {Id}");
         }
 
 

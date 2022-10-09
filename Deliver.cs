@@ -5,15 +5,18 @@ namespace Projet
     {
 
 
-        public Deliver(string name, string firstname, int id) : base(name, firstname, id)
+        public Deliver(int id) : base(id)
+        {
+
+        }
+        public override void UpdateUser()
         {
 
         }
 
-        public override void UpdateUser(string name, string firstname)
+        public override void PrintUser()
         {
-            Name = name;
-            FirstName = firstname;
+            Console.WriteLine($"Deliver: {Name} {FirstName} {Id}");
         }
 
     }

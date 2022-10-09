@@ -1,8 +1,10 @@
 using System.Collections;
 
-namespace Projet {
+namespace Projet
+{
 
-    public class Pizzeria {
+    public class Pizzeria
+    {
 
         public string Name { get; set; }
 
@@ -33,22 +35,24 @@ namespace Projet {
             Name = name;
         }
 
-        public void CreateUser(string user, string name, string firstname)
+        public void CreateClient()
         {
-            if (user == "Client")
-            {
-                clients.Add(new Client(name, firstname, clients.Count + 1));
-            }
-            else if (user == "Deliver")
-            {
-                delivers.Add(new Deliver(name, firstname, delivers.Count + 1));
-            }
-            else if (user == "Commis")
-            {
-                commiss.Add(new Commis(name, firstname, commiss.Count  + 1));
-            }
-
+            Client client = new Client(clients.Count + 1);
+            client.CreateUser();
+            clients.Add(client);
         }
+
+        public void CreateClient(string name, string firstname, string address, string phone)
+        {
+            clients.Add(new Client(clients.Count + 1, name, firstname, address, phone));
+        }
+
+        public void CreateCommis(string name, string firstname)
+        {
+            commiss.Add(new Commis(commiss.Count + 1, name, firstname));
+        }
+
+
 
         public void PrintUsers(ArrayList users)
         {
@@ -68,29 +72,14 @@ namespace Projet {
             Console.WriteLine($"Commiss: {commiss.Count}");
         }
 
-        public void UpdateUser(ArrayList users, int id){
+        public void UpdateUser(ArrayList users, int id)
+        {
 
             foreach (User user in users)
             {
                 if (user.Id == id)
-                {   
-                    Console.WriteLine("\nYou are updating the user: " + user.Name + " " + user.FirstName +"\nPress enter to skip" + "\n");
-
-                    Console.WriteLine("Name: ");
-                    string? name = Console.ReadLine();
-
-                    Console.WriteLine("FirstName: ");
-                    string? firstname = Console.ReadLine();
-
-                    if (String.IsNullOrEmpty(name)) name = user.Name;
-                    
-                    if (String.IsNullOrEmpty(firstname)) firstname = user.FirstName;
-
-                    user.UpdateUser(name, firstname);
-
-                    Console.WriteLine("\n***User updated!***\n");
-
-                    user.PrintUser();
+                {
+                    user.UpdateUser();
                 }
 
             }
@@ -98,7 +87,7 @@ namespace Projet {
 
         public void DeleteUser(ArrayList users, int id)
         {
-            object? userToDelete = null;
+            object userToDelete = null;
 
             foreach (User user in users)
             {
@@ -117,17 +106,17 @@ namespace Projet {
 
 
 
-    public class Program {
+    public class Program
+    {
 
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
 
             Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-            Luigi.CreateUser("Client", "King", "Bowser");
+            Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
-            Luigi.CreateUser("Deliver", "Mushroom", "Toad");
-
-            Luigi.CreateUser("Commis", "Bros", "Mario");
+            Luigi.CreateCommis("Mushroom", "Toad");
 
 
         }
