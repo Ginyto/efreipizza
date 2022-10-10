@@ -1,4 +1,4 @@
-namespace Projet {
+
 
     public class Client : User
     {
@@ -78,5 +78,5 @@ namespace Projet {
 
     }
 
-}
+
 

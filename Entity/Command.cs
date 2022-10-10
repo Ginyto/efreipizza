@@ -1,7 +1,5 @@
 using System.Collections;
 
-namespace Projet
-{
 
     public class Command
     {
@@ -188,5 +186,5 @@ namespace Projet
     //     }
 
     // }
-}
+
 

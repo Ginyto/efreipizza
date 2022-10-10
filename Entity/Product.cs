@@ -1,4 +1,4 @@
-namespace Projet {
+
 
     public abstract class Product
     {
@@ -36,4 +36,3 @@ namespace Projet {
         public abstract void UpdateProduct();
     }
 
-}

@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 
-namespace Projet
-{
 
     public class Pizzeria
     {
@@ -236,37 +234,36 @@ namespace Projet
 
 
 
-    public class Program
-    {
-
-        public static void Main(string[] args)
+    namespace Projet {
+        public class Program
         {
 
-            Pizzeria Luigi = new Pizzeria("Chez Luigi");
+            public static void Main(string[] args)
+            {
 
-            Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
+                Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-            Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
+                Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
-            Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+                Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
-            Console.WriteLine(Luigi.LaCarte());
+                Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
 
-            Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
+                Console.WriteLine(Luigi.LaCarte());
 
-            Luigi.TakeOrder(command, 1, "M", 2, "pizza");
-            Luigi.TakeOrder(command, 2, "L", 1, "pizza");
+                Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
 
-            Luigi.TakeOrder(command, 1, "XL", 1, "drink");
-            Luigi.TakeOrder(command, 2, "XL", 1, "drink");
+                Luigi.TakeOrder(command, 1, "M", 2, "pizza");
+                Luigi.TakeOrder(command, 2, "L", 1, "pizza");
 
-            command.PrintCommand();
+                Luigi.TakeOrder(command, 1, "XL", 1, "drink");
+                Luigi.TakeOrder(command, 2, "XL", 1, "drink");
+
+                command.PrintCommand();
 
 
+
+            }
 
         }
-
     }
-
-
-}

@@ -1,4 +1,4 @@
-namespace Projet {
+
 
     public abstract class User
     {
@@ -32,4 +32,3 @@ namespace Projet {
 
     }
 
-}

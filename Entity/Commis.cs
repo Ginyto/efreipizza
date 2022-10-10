@@ -1,5 +1,5 @@
-namespace Projet
-{
+
+
     /// <summary>
     /// Commis capable de prendre de gerer la pizzaria entiere
     /// </summary>
@@ -38,4 +38,3 @@ namespace Projet
 
     
 
-}

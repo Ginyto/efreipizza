@@ -1,8 +1,4 @@
 
-
-using System;
-namespace Projet
-{
     public class Payment
     {
         public string ClientName { get; set; }
@@ -20,15 +16,14 @@ namespace Projet
         }
 
         public void PrintPayment()
-    {
-        Console.WriteLine($"ClientName: {ClientName}");
-        Console.WriteLine($"ClientFirstName: {ClientFirstName}");
-        Console.WriteLine($"TypeOfPayment: {TypeOfPayment}");   
-        Console.WriteLine($"PriceOrder: {PriceOrder}");   
-    }
-     public double MakePayment(){
-        return PriceOrder;
+        {
+            Console.WriteLine($"ClientName: {ClientName}");
+            Console.WriteLine($"ClientFirstName: {ClientFirstName}");
+            Console.WriteLine($"TypeOfPayment: {TypeOfPayment}");   
+            Console.WriteLine($"PriceOrder: {PriceOrder}");   
+        }
+        public double MakePayment(){
+            return PriceOrder;
 
-     }
+        }
     }
-}

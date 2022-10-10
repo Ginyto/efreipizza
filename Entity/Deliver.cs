@@ -1,5 +1,5 @@
-namespace Projet
-{
+
+
 
     public class Deliver : User
     {
@@ -20,5 +20,3 @@ namespace Projet
         }
 
     }
-
-}

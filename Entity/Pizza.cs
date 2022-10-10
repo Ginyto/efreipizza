@@ -1,4 +1,4 @@
-namespace Projet {
+
 
     public class Pizza : Product
     {
@@ -37,4 +37,3 @@ namespace Projet {
 
     }
 
-}
