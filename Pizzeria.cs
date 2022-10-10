@@ -30,7 +30,7 @@ namespace Projet
         /// Liste des commandes
         /// </summary>
         /// <returns></returns>
-        public ArrayList commands = new ArrayList();
+        public ArrayList commandlist = new ArrayList();
 
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Projet
     }
 
 
-
+/**
     public class Program
     {
 
@@ -129,6 +129,6 @@ namespace Projet
         }
 
     }
-
+**/
 
 }
