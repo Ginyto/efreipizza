@@ -1,27 +1,39 @@
-class Pizza
-{
-    public string Name { get; set; }
-    public double Price { get; set; }
-    public int Size { get; set; }
-    public string Description { get; set; }
-
-    public Pizza(string name, double price, int size, string description)
+namespace Projet {
+    public class Pizza : Product
     {
-        Name = name;
-        Price = price;
-        Size = size;
-        Description = description;
-    }
+        public string Description { get; set; }
 
+        public Pizza(int id) : base(id){}
 
-    public void PrintPizza()
-    {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Price: {Price}");
-        Console.WriteLine($"Size: {Size}");
-        Console.WriteLine($"Description: {Description}");
+        public Pizza(int id, string name, string size, int price, string description) : base(id, name, size, price)        
+        {
+            Description = description;
+        }
+
+        public override void PrintProduct()
+        {
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Size: {Size}");
+            Console.WriteLine($"Description: {Description}");
+        }
+        public override void UpdateProduct()
+        {
+            Console.WriteLine("\nYou are updating the Product: " + Name + "\nPress enter to skip" + "\n");
+
+            Console.WriteLine("Price modification : ");
+            int price = Console.Read();
+            Price = price; 
+
+            Console.WriteLine("Size Modification : ");
+            string size = Console.ReadLine();
+            if (!String.IsNullOrEmpty(size)){ Size = size; }
+
+            Console.WriteLine("\n***Product updated!***\n");
+
+            PrintProduct();
+        }
+
     }
 
 }
-
-

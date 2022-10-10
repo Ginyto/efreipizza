@@ -1,13 +1,24 @@
-public class Deliver {
-    
-    public int DeliverNumber { get; set; }
+namespace Projet
+{
 
-    public Deliver(int delivernumber){
-        DeliverNumber = delivernumber;
-    }
-
-    public void PrintDeliver()
+    public class Deliver : User
     {
-        Console.WriteLine($"DeliverNumber: {DeliverNumber}");
+
+
+        public Deliver(int id) : base(id)
+        {
+
+        }
+        public override void UpdateUser()
+        {
+
+        }
+
+        public override void PrintUser()
+        {
+            Console.WriteLine($"Deliver: {Name} {FirstName} {Id}");
+        }
+
     }
+
 }

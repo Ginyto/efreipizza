@@ -1,22 +1,24 @@
-class Drink
-{
-    public string Name { get; set; }
-    public int Volume { get; set; }
-    public double Price { get; set; }
-
-    public Drink(string name, int volume, double price)
+namespace Projet {
+    public class Drink : Product
     {
-        Name = name;
-        Volume = volume;
-        Price = price;       
-    }
+        public Drink(int id) : base(id){}
 
+        public Drink(int id, string name, string size, int price) : base(id, name, size, price)        
+        {
 
-    public void PrintDrink()
-    {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Volume: {Volume}");
-        Console.WriteLine($"Price: {Price}");   
+        }
+
+        public override void PrintProduct()
+        {
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Size: {Size}");
+        }
+        public override void UpdateProduct()
+        {
+            
+        }
+
     }
 
 }
