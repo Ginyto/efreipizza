@@ -3,12 +3,11 @@ namespace Projet {
     public abstract class Product
     {
         public string Name { get; set; }
-        public int Price { get; set; }
-        public string Size { get; set; }
-        public int Id { get; set; }
+        public double Price { get; set; }
+        public string Size { get; set; } = "S";
 
 
-        public Product(int id)
+        public Product()
         {
             Console.WriteLine("\nProduit : \n");
             Console.WriteLine("Name: ");
@@ -20,15 +19,17 @@ namespace Projet {
             Console.WriteLine("Price : ");
             Price = Console.Read();
 
-            Id = id;
         }
 
-        public Product (int id, string name,string size, int price)
+        public Product (string name, double price)
         {
-            Id = id;
             Name = name;
-            Size = size;
             Price = price;
+
+        }
+
+        public void Extra(int extra){
+            Price += extra;
         }
 
         public abstract void PrintProduct();

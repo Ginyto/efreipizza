@@ -1,65 +1,84 @@
+using System.Collections;
+
 namespace Projet
 {
 
     public class Command
     {
-        public int OrderNumber { get; set; }
+        public int Id { get; set; }
         public string Time { get; set; }
         public string Date { get; set; }
-        public Commis CommisInfos { get; set; }
-        public Client ClientInfos { get; set; }
-        public List<Pizza> Pizzas = new List<Pizza>();
-        public List<Drink> Drinks = new List<Drink>();
-        public double PriceOrder { get; set; }
-        public int State { get; set; }  //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
+        public Commis Commis { get; set; }
+        public Client Client { get; set; }
+        public Deliver Deliver { get; set; }
+        public ArrayList Pizzas = new ArrayList();
+        public ArrayList Drinks = new ArrayList();
+        public double Price { get; set; } = 0.00;
+        public int State { get; set; } = 0; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
 
 
-
-        public Command(int ordernumber, string time, string date, Commis commisinfos,Client clientinfos, string clientfirstname, List<Pizza> pizzas, List<Drink> drinks, double priceorder, int state)
-        {
-            this.OrderNumber=ordernumber;
-            this.Time=time;
-            this.Date=date;
-            this.CommisInfos=commisinfos;
-            this.ClientInfos=clientinfos;
-            this.Pizzas=pizzas;
-            this.Drinks=drinks;
-            this.PriceOrder=priceorder;
-            this.State=state;                      
-        }
-
-        public Command()
+        public Command(int Id)
         {
 
         }
 
-        public void addPizzas(Pizza p)
-        {  
-            Pizzas.Add(p);
-        }
-
-        public void addDrinks(Drink d)
-        {  
-            Drinks.Add(d);
-        }
-
-        public void CalculatePrice()
+        public Command(int id, Client client, Commis commis, Deliver deliver)
         {
-            int TotalPrice = 0;
+            Id = id;
+            Time = DateTime.Now.ToString("HH:mm:ss");
+            Date = DateTime.Now.ToString("dd/MM/yyyy");
 
-            foreach(Pizza p in Pizzas)
-                TotalPrice = TotalPrice + p.Price;
+            Commis = commis;
+            Client = client;
+            Deliver = deliver;
 
-            foreach(Drink d in Drinks)
-                TotalPrice = TotalPrice + d.Price;
-            
-            PriceOrder = TotalPrice;
         }
+
+        public void addPizzas(Pizza pizza)
+        {
+            CalculatePrice(pizza);
+
+            Pizzas.Add(pizza);
+
+            Price += pizza.Price;
+
+        }
+
+        public void addDrinks(Drink drink)
+        {
+            CalculatePrice(drink);
+
+            Drinks.Add(drink);
+
+            Price += drink.Price;
+
+        }
+
+        public void CalculatePrice(Product product)
+        {
+            switch (product.Size)
+            {
+                case "S":
+                    product.Price += 0.00;
+                    break;
+                case "M":
+                    product.Price += 1.00;
+                    break;
+                case "L":
+                    product.Price += 4.00;
+                    break;
+                case "XL":
+                    product.Price += 5.00;
+                    break;
+            }
+
+        }
+
 
 
         public void PrintCommand()
         {    
-            Console.WriteLine($"\nCommand number : {OrderNumber}");
+            Console.WriteLine($"Command number : {Id}");
 
             switch(State) 
             {
@@ -75,93 +94,99 @@ namespace Projet
 
                 default : 
                     Console.WriteLine($"Lost command");
-                    break;           
+                    break;
             }
 
             Console.WriteLine($"------------------------------------------");
             Console.WriteLine($"Time : {Time}");
             Console.WriteLine($"Date : {Date}");
-            Console.WriteLine($"Commis : {CommisInfos.Name} {CommisInfos.FirstName}");
-            Console.WriteLine($"ClientName : {ClientInfos.Name} {ClientInfos.FirstName}");
+            Console.WriteLine($"Commis : {Commis.Name} {Commis.FirstName}");
+            Console.WriteLine($"Client : {Client.Name} {Client.FirstName}");
 
             Console.WriteLine($"------------------------------------------");
 
             Console.WriteLine($"Pizzas :");
-            foreach(var p in Pizzas)
-                Console.WriteLine($"- ID : {p.Id} , Pizza : {p.Name}, Price : {p.Price}, Size : {p.Size}, Description : {p.Description}"); 
+
+            foreach(Pizza p in Pizzas)
+                Console.WriteLine($"- Pizza : {p.Name}, Price : {p.Price}$, Size : {p.Size}"); 
+
             Console.WriteLine($"------------------------------------------");
+
             Console.WriteLine($"Drinks :");
-            foreach(var d in Drinks)
-                Console.WriteLine($"- ID : {d.Id} , Drink : {d.Name}, Price : {d.Price}, Size : {d.Size}"); 
+
+            foreach(Drink d in Drinks)
+                Console.WriteLine($"- Drink : {d.Name}, Price : {d.Price}$, Size : {d.Size}");
+
             Console.WriteLine($"------------------------------------------");
-            Console.WriteLine($"PriceOrder : {PriceOrder} $ \n");   
+
+            Console.WriteLine($"PriceOrder : {Price}$");   
         }
 
     }
     
-    public class Program
-    {
+    // public class Program
+    // {
 
-        public static void Main(string[] args)
-        {
+    //     public static void Main(string[] args)
+    //     {
 
-            /**
+    //         /**
 
-            ArrayList Pizzas = new ArrayList() {"hawaienne", "reine"};
-            ArrayList Drinks = new ArrayList() {"coca", "sprite"};
-
-
-            ArrayList Pizzasss = new ArrayList() {"hawaienne", "reine"};
-            ArrayList Drinksss = new ArrayList() {"coca", "sprite"};
+    //         ArrayList Pizzas = new ArrayList() {"hawaienne", "reine"};
+    //         ArrayList Drinks = new ArrayList() {"coca", "sprite"};
 
 
-            Command command = new Command(12, "19h03", "22/08", "Steve", "Phillipe", "Olivier", Pizzas, Drinks, 27, 0);
-            Command command2 = new Command(13, "19h07", "22/08", "Anim", "Orima", "Karim", Pizzasss, Drinksss, 21, 2);
+    //         ArrayList Pizzasss = new ArrayList() {"hawaienne", "reine"};
+    //         ArrayList Drinksss = new ArrayList() {"coca", "sprite"};
 
-            command.PrintCommand();
-            command2.PrintCommand();
 
-            Tib.addPizzas
-            Tib.addDrinks
+    //         Command command = new Command(12, "19h03", "22/08", "Steve", "Phillipe", "Olivier", Pizzas, Drinks, 27, 0);
+    //         Command command2 = new Command(13, "19h07", "22/08", "Anim", "Orima", "Karim", Pizzasss, Drinksss, 21, 2);
+
+    //         command.PrintCommand();
+    //         command2.PrintCommand();
+
+    //         Tib.addPizzas
+    //         Tib.addDrinks
 
 
             
 
             
-            Tib.Pizzas.Add("Pizzi");
-            Tib.Drinks.Add("Coca");
-            Tib.PrintCommand();
+    //         Tib.Pizzas.Add("Pizzi");
+    //         Tib.Drinks.Add("Coca");
+    //         Tib.PrintCommand();
 
 
-             */
+    //          */
             
 
-            Command Tib = new Command ();
+    //         Command Tib = new Command ();
 
-            Client jerem = new Client(01,"Jeremy","Antelois","14 rue du Faucon Bagnexu","0654787898");
-            Commis phil = new Commis(01,"Phillipe","Arenoli");
+    //         Client jerem = new Client(01,"Jeremy","Antelois","14 rue du Faucon Bagnexu","0654787898");
+    //         Commis phil = new Commis(01,"Phillipe","Arenoli");
 
-            Pizza piz = new Pizza(7,"poupu","XL",17,"peperonni");
-            Drink d = new Drink(7,"coca","XL",78);
+    //         Pizza piz = new Pizza(7,"poupu","XL",17,"peperonni");
+    //         Drink d = new Drink(7,"coca","XL",78);
 
-            Tib.ClientInfos=jerem;
-            Tib.CommisInfos=phil;
+    //         Tib.ClientInfos=jerem;
+    //         Tib.CommisInfos=phil;
 
-            Tib.addPizzas(piz);
-            Tib.addDrinks(d);
+    //         Tib.addPizzas(piz);
+    //         Tib.addDrinks(d);
 
-            Tib.PrintCommand();
+    //         Tib.PrintCommand();
 
-            Tib.CalculatePrice();
+    //         Tib.CalculatePrice();
             
-            Tib.PrintCommand();
+    //         Tib.PrintCommand();
 
 
 
 
 
-        }
+    //     }
 
-    }
+    // }
 }
 

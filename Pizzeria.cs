@@ -30,7 +30,19 @@ namespace Projet
         /// Liste des commandes
         /// </summary>
         /// <returns></returns>
-        public ArrayList commandlist = new ArrayList();
+        public ArrayList commands = new ArrayList();
+
+        /// <summary>
+        /// Liste des pizzas
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList pizzas = new ArrayList();
+
+        /// <summary>
+        /// Liste des drinks
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList drinks = new ArrayList();
 
 
         /// <summary>
@@ -40,7 +52,60 @@ namespace Projet
         public Pizzeria(string name)
         {
             Name = name;
+
+            OpenRestaurant();
         }
+
+
+        public void OpenRestaurant()
+        {
+            Pizza p1 = new Pizza("Margherita",7.99, "Tomato sauce, mozzarella, basil");
+            pizzas.Add(p1);
+
+            Pizza p2 = new Pizza("Napolitaine",8.99, "Tomato sauce, mozzarella, anchovies, olives");
+            pizzas.Add(p2);
+
+            Pizza p3 = new Pizza("Calzone",9.99, "Tomato sauce, mozzarella, ham, mushrooms");
+            pizzas.Add(p3);
+
+            Pizza p4 = new Pizza("Reine",10.99, "Tomato sauce, mozzarella, ham, mushrooms");
+            pizzas.Add(p4);
+
+
+            Drink d1 = new Drink("Coca", 2.00);
+            drinks.Add(d1);
+
+            Drink d2 = new Drink("Fanta", 2.00);
+            drinks.Add(d2);
+
+            Drink d3 = new Drink("Sprite", 2.00);
+            drinks.Add(d3);
+
+            Drink d4 = new Drink("7up", 2.00);
+            drinks.Add(d4);
+        }
+
+        public string LaCarte(){
+
+            string carte = "La carte v \n\n";
+
+            foreach (Pizza p in pizzas)
+            {
+                carte += p.Name + " : " + p.Price + "$\n";
+
+            }
+
+            foreach (Drink d in drinks)
+            {
+                carte += d.Name + " : " + d.Price + "$\n";
+
+            }
+
+            carte += "\nSize ---> M + 1$ , L + 4$ , XL + 5$ <---\n";
+
+            return carte;
+        }
+
 
         public void CreateClient()
         {
@@ -49,16 +114,29 @@ namespace Projet
             clients.Add(client);
         }
 
-        public void CreateClient(string name, string firstname, string address, string phone)
+        public Client CreateClient(string name, string firstname, string address, string phone)
         {
-            clients.Add(new Client(clients.Count + 1, name, firstname, address, phone));
+            Client client = new Client(clients.Count + 1, name, firstname, address, phone);
+            clients.Add(client);
+
+            return client;
         }
 
-        public void CreateCommis(string name, string firstname)
+        public Commis CreateCommis(string name, string firstname)
         {
-            commiss.Add(new Commis(commiss.Count + 1, name, firstname));
+            Commis commis = new Commis(commiss.Count + 1, name, firstname);
+            commiss.Add(commis);
+
+            return commis;
         }
 
+        public Deliver CreateDeliver(string name, string firstname)
+        {
+            Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
+            delivers.Add(deliver);
+
+            return deliver;
+        }
 
 
         public void PrintUsers(ArrayList users)
@@ -109,10 +187,54 @@ namespace Projet
 
         }
 
+        public Pizza PizzaById(int id)
+        {
+            return (Pizza) pizzas[id - 1];
+
+        }
+
+        public Drink DrinkById(int id)
+        {
+            return (Drink) drinks[id - 1];
+
+        }
+
+        public void TakeOrder(Command command, int IdItem, string size, int quantity, string itemtype) {
+
+            if (itemtype == "pizza")
+            {
+                for (int i = 0; i < quantity; i++)
+                {
+                    PizzaById(IdItem).Size = size;
+
+                    command.addPizzas(PizzaById(IdItem));
+                }
+            }
+            else if (itemtype == "drink")
+            {
+                for (int i = 0; i < quantity; i++)
+                {
+                    DrinkById(IdItem).Size = size;
+
+                    command.addDrinks(DrinkById(IdItem));
+                }
+            }
+
+        }
+
+        public Command CreateCommand(Client client, Commis commis, Deliver deliver)
+        {
+            Command command = new Command(commands.Count + 1, client, commis, deliver);
+            commands.Add(command);
+
+            return command;
+        }
+
+
     }
 
 
-/**
+
     public class Program
     {
 
@@ -121,14 +243,29 @@ namespace Projet
 
             Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-            Luigi.CreateClient("Bowser", "King", "Paris", "06");
+            Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
-            Luigi.CreateCommis("Mushroom", "Toad");
+            Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
+
+            Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+
+            Console.WriteLine(Luigi.LaCarte());
+
+            Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
+
+            Luigi.TakeOrder(command, 1, "M", 2, "pizza");
+            Luigi.TakeOrder(command, 2, "L", 1, "pizza");
+
+            Luigi.TakeOrder(command, 1, "XL", 1, "drink");
+            Luigi.TakeOrder(command, 2, "XL", 1, "drink");
+
+            command.PrintCommand();
+
 
 
         }
 
     }
-**/
+
 
 }
