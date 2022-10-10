@@ -1,9 +1,11 @@
-class Client {
+class Client : IEnumerable<string> {
 
     public string Name { get; set; }
     public string FirstName { get; set; }
     public int OrderNumber { get; set; }
     public string DateOfFirstCommand { get; set; }
+
+
 
     public Client(string name, string firstname, int ordernumber, string dateoffirstcommand)
     {
@@ -37,8 +39,6 @@ class Client {
         Console.WriteLine(name);
 
     }
-
-
 
 
 }
