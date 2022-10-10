@@ -22,6 +22,13 @@ using System.Collections;
         /// <returns></returns>
         public ArrayList commiss = new ArrayList();
 
+        /// <summary>
+        /// Listes des commandes
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList commands = new ArrayList();
+
+
 
         /// <summary>
         /// Constructeur de la pizzeria

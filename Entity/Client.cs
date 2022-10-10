@@ -69,13 +69,14 @@
 
         public override string PrintUser()
         {
+            Console.WriteLine("Id" + Id);
             Console.WriteLine("Name: " + Name);
             Console.WriteLine("FirstName: " + FirstName);
             Console.WriteLine("Address: " + Address);
             Console.WriteLine("Phone: " + Phone);
             Console.WriteLine("Date: " + Date);
 
-            return "Name: " + Name + " FirstName: " + FirstName + " Address: " + Address + " Phone: " + Phone + " Date: " + Date;
+            return "Id:"+ Id + "Name: " + Name + " FirstName: " + FirstName + " Address: " + Address + " Phone: " + Phone + " Date: " + Date;
 
 
         }

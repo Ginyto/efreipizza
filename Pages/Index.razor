@@ -5,33 +5,14 @@
 
 <h1 > ❇️ @Luigi.Name ❇️ </h1>
 
-<br>
 
 <div>Stats : @Luigi.PrintPizzeria() </div>
 
-<br>
 
-Name
-<input type="text" @bind="name" @bind:event="oninput" >
-FirstName
-<input type="text" @bind="firstname" @bind:event="oninput">
-Address
-<input type="text" @bind="address" @bind:event="oninput">
-Phone
-<input type="text" @bind="phone" @bind:event="oninput">
+Name : @name
 
-<button @onclick="() => Luigi.CreateClient(name, firstname, address, phone)"> Add a new Client </button>
-
-<div >
-
-    @Luigi.PrintUsers(Luigi.clients)
-
-</div>
-
-
-
-
-
+<input type="text" @bind="name" @bind:event="oninput">
+<button @onclick="erased">erased</button>
 
 
 
@@ -40,10 +21,15 @@ Phone
 
     Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-    string name;
-    string firstname;
-    string address;
-    string phone;
+    public string name { get; set; } = " ";
+
+    public void erased()
+
+    {
+
+        name = " ";
+
+    }
 
 
 
