@@ -1,8 +1,5 @@
 using System.Collections;
 
-namespace Projet
-{
-
     public class Pizzeria
     {
 
@@ -54,23 +51,29 @@ namespace Projet
 
 
 
-        public void PrintUsers(ArrayList users)
+        public string PrintUsers(ArrayList users)
         {
-            Console.WriteLine("\nListe des utilisateurs v");
+            
             foreach (User user in users)
             {
-                user.PrintUser();
+                return user.PrintUser();
             }
+
+            return "No user found";
         }
 
 
-        public void PrintPizzeria()
+        public string PrintPizzeria()
         {
             Console.WriteLine($"Pizzeria: {Name}");
             Console.WriteLine($"Clients: {clients.Count}");
             Console.WriteLine($"Delivers: {delivers.Count}");
             Console.WriteLine($"Commiss: {commiss.Count}");
+
+            return $"Clients: {clients.Count} Delivers: {delivers.Count} \nCommis: {commiss.Count}";
         }
+
+
 
         public void UpdateUser(ArrayList users, int id)
         {
@@ -106,22 +109,19 @@ namespace Projet
 
 
 
-    public class Program
-    {
+    // public class Program
+    // {
 
-        public static void Main(string[] args)
-        {
+    //     public static void Main(string[] args)
+    //     {
 
-            Pizzeria Luigi = new Pizzeria("Chez Luigi");
+    //         Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-            Luigi.CreateClient("Bowser", "King", "Paris", "06");
+    //         Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
-            Luigi.CreateCommis("Mushroom", "Toad");
-
-
-        }
-
-    }
+    //         Luigi.CreateCommis("Mushroom", "Toad");
 
 
-}
+    //     }
+
+    // }

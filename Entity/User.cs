@@ -1,5 +1,3 @@
-namespace Projet
-{
 
     public abstract class User
     {
@@ -27,10 +25,8 @@ namespace Projet
             Id = id;
         }
 
-        public abstract void PrintUser();
+        public abstract string PrintUser();
         public abstract void UpdateUser();
 
 
     }
-
-}

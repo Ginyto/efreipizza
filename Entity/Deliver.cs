@@ -1,5 +1,4 @@
-namespace Projet
-{
+
 
     public class Deliver : User
     {
@@ -14,11 +13,10 @@ namespace Projet
 
         }
 
-        public override void PrintUser()
+        public override string PrintUser()
         {
-            Console.WriteLine($"Deliver: {Name} {FirstName} {Id}");
+            return $"Deliver: {Name} {FirstName} {Id}";
         }
 
     }
 
-}

@@ -1,5 +1,4 @@
-namespace Projet
-{
+
 
     public class Client : User
     {
@@ -68,15 +67,18 @@ namespace Projet
             PrintUser();
         }
 
-        public override void PrintUser()
+        public override string PrintUser()
         {
             Console.WriteLine("Name: " + Name);
             Console.WriteLine("FirstName: " + FirstName);
             Console.WriteLine("Address: " + Address);
             Console.WriteLine("Phone: " + Phone);
             Console.WriteLine("Date: " + Date);
+
+            return "Name: " + Name + " FirstName: " + FirstName + " Address: " + Address + " Phone: " + Phone + " Date: " + Date;
+
+
         }
 
     }
 
-}

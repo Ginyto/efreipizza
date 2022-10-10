@@ -1,5 +1,4 @@
-namespace Projet
-{
+
     /// <summary>
     /// Commis capable de prendre de gerer la pizzaria entiere
     /// </summary>
@@ -27,9 +26,9 @@ namespace Projet
         }
 
 
-        public override void PrintUser()
+        public override string PrintUser()
         {
-            Console.WriteLine($"Commis: {Name} {FirstName} {Id}");
+            return $"Commis: {Name} {FirstName} {Id}";
         }
 
 
@@ -38,4 +37,3 @@ namespace Projet
 
 
 
-}
