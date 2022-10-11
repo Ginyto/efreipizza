@@ -11,10 +11,7 @@ using System;
         /// <param name="name">Nom</param>
         /// <param name="firstname">Prenom</param>
         /// <returns>Un commis</returns>
-        public Commis(int id) : base(id)
-        {
 
-        }
 
         public Commis(int id, string name, string firstname) : base(id, name, firstname)
         {

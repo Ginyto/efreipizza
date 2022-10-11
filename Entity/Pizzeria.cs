@@ -104,12 +104,6 @@ public class Pizzeria
         }
 
 
-        public void CreateClient()
-        {
-            Client client = new Client(clients.Count + 1);
-            client.CreateUser();
-            clients.Add(client);
-        }
 
         public Client CreateClient(string name, string firstname, string address, string phone)
         {
@@ -258,8 +252,6 @@ public class Pizzeria
                 Luigi.TakeOrder(command, 2, "XL", 1, "drink");
 
                 command.PrintCommand();
-
-
 
             }
 

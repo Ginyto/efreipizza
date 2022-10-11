@@ -19,17 +19,7 @@ using System;
         
         public override void UpdateProduct()
         {
-            Console.WriteLine("\nYou are updating the Product: " + Name + "\nPress enter to skip" + "\n");
-
-            Console.WriteLine("Price modification : ");
-            int price = Console.Read();
-            Price = price; 
-
-            Console.WriteLine("Size Modification : ");
-            string size = Console.ReadLine();
-            if (!String.IsNullOrEmpty(size)){ Size = size; }
-
-            Console.WriteLine("\n***Product updated!***\n");
+            
 
             PrintProduct();
         }
