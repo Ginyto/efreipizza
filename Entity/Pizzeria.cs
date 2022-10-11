@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-
-
-    public class Pizzeria
+public class Pizzeria
     {
 
         public string Name { get; set; }
