@@ -115,18 +115,65 @@ public class Pizzeria
 
         public Commis CreateCommis(string name, string firstname)
         {
-            Commis commis = new Commis(commiss.Count + 1, name, firstname);
-            commiss.Add(commis);
 
-            return commis;
+            if (commiss.Count == 0)
+            {
+                Commis commis = new Commis(commiss.Count + 1, name, firstname);
+                commiss.Add(commis);
+
+                return commis;
+            }
+            else
+            {
+                foreach (Commis c in commiss)
+                {
+                    if (c.Name == name && c.FirstName == firstname)
+                    {
+                        Console.WriteLine("Commis already exist");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Commis created");
+                        Commis commis = new Commis(commiss.Count + 1, name, firstname);
+                        commiss.Add(commis);
+
+                        return commis;
+                    }
+                }
+            }
+
+            return null;
         }
 
         public Deliver CreateDeliver(string name, string firstname)
         {
-            Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
-            delivers.Add(deliver);
+            if (delivers.Count == 0)
+            {
+                Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
+                delivers.Add(deliver);
 
-            return deliver;
+                return deliver;
+            }
+            else
+            {
+                foreach (Deliver c in delivers)
+                {
+                    if (c.Name == name && c.FirstName == firstname)
+                    {
+                        Console.WriteLine("deliver already exist");
+                    }
+                    else
+                    {
+                        Console.WriteLine("deliver created");
+                        Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
+                        delivers.Add(deliver);
+
+                        return deliver;
+                    }
+                }
+            }
+
+            return null;
         }
 
 

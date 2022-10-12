@@ -3,49 +3,89 @@
 
 <PageTitle>Efrei Pizza</PageTitle>
 
+
 <div id="zone">
 
     <div id="top">
         <h1> ❇️ @Luigi.Name ❇️ </h1>
 
-        <div>Stats -> @Luigi.PrintPizzeria() </div>
+        @start()
+
+        <div>
+            @foreach (Commis commis in Luigi.commiss)
+            {
+                <div>@commis.Id-@commis.Name-@commis.FirstName</div>
+            }
+        </div>
+
+        <div>Stats -> @Luigi.PrintPizzeria()</div>
     </div>
 
     <div id="body">
 
         <div id="searchbar">
             <input type="text" class="saisieInput" placeholder="Phone number client" />
+            <button @onclick="change" class="btn">altern</button>
         </div>
 
         <div id="client">
 
-            <div id="addclient">
+            @if (!onlist)
+            {
+                <div id="addclient">
 
-                <div id="saisie">
+                    
 
-                    <h2> 🍕 Add a client 🍕 </h2>
+                    <div id="saisie">
 
-                    <input type="text" class="saisieInput" placeholder="Name" @bind="client.Name" @bind:event="oninput">
+                        <button class="btn" @onclick="personnels"> Personnels </button>
 
-                    <input type="text" class="saisieInput" placeholder="Firstname" @bind="client.FirstName" @bind:event="oninput">
+                        <h2> @if (personnel) { <span> 🍕 New Client 🍕</span> } else { <span> ★ New Personnal ★</span> } </h2>
+                        
 
-                    <input type="text" class="saisieInput" placeholder="Address" @bind="client.Address" @bind:event="oninput">
+                        <input type="text" class="saisieInput" placeholder="Name" @bind="client.Name" @bind:event="oninput">
 
-                    <input type="text" class="saisieInput" placeholder="Phone" @bind="client.Phone" @bind:event="oninput">
+                        <input type="text" class="saisieInput" placeholder="Firstname" @bind="client.FirstName" @bind:event="oninput">
 
-                    <button class="btn" @onclick="AddClient">Add client</button>
+                        @if (personnel)
+                        {
+                            <input type="text" class="saisieInput" placeholder="Address" @bind="client.Address" @bind:event="oninput">
+
+                            <input type="text" class="saisieInput" placeholder="Phone" @bind="client.Phone" @bind:event="oninput">
+
+                            
+
+                            <button class="btn" @onclick="addPersonnel">Add client</button>
+                        }
+                        else
+                        {
+                            <select class="saisieselect" @bind="role" @bind:event="oninput">
+                                <option value="0"> 🚲 Deliver 🚲</option>
+                                <option value="1">🧑‍🍳 Commis 🧑‍🍳</option>
+                            </select>
+
+                            <button class="btn" @onclick="addPersonnel">Add personnal</button>
+                        }
+
+                        
+
+                    </div>
 
                 </div>
+            }
 
-            </div>
-
-            <div id="takeorder">
+            @if (onlist)
+            {
+                <div id="takeorder">
                     
                     <div id="saisie">
     
                         <h2> 🍕 Take an order 🍕 </h2>
     
                         <div class="select">
+
+                            <button class="btn minus">-</button>
+
                             <select class="saisieselect">
                                 <option value="1">🍕 Margherita </option>
                                 <option value="2">🍕 Napolitaine </option>
@@ -54,14 +94,20 @@
                             </select>
 
                             <select class="saisieselect">
-                                <option value="1">Small 😀</option>
-                                <option value="2">Medium 😃</option>
-                                <option value="3">Large 😄</option>
-                                <option value="4">Extra Large 😋</option>
+                                <option value="S">Small 😀</option>
+                                <option value="M">Medium 😃</option>
+                                <option value="L">Large 😄</option>
+                                <option value="XL">Extra Large 😋</option>
                             </select>
+
+                            <button class="btn plus">+</button>
+
                         </div>
 
                         <div class="select">
+
+                            <button class="btn minus">-</button>
+
                             <select class="saisieselect">
                                 <option value="1">🥤 Coca </option>
                                 <option value="2">🥤 Fanta </option>
@@ -70,11 +116,14 @@
                             </select>
 
                             <select class="saisieselect">
-                                <option value="1">Small 😀</option>
-                                <option value="2">Medium 😃</option>
-                                <option value="3">Large 😄</option>
-                                <option value="4">Extra Large 😋</option>
+                                <option value="S">Small 😀</option>
+                                <option value="M">Medium 😃</option>
+                                <option value="L">Large 😄</option>
+                                <option value="XL">Extra Large 😋</option>
                             </select>
+
+                            <button class="btn plus">+</button>
+
                         </div>
 
 
@@ -82,13 +131,44 @@
                         <button class="btn">Take order</button>
     
                     </div>
-            </div>
+                </div>
 
+                <div id="currentOrder">
+                    
+                </div>
+
+            }
+
+            
         </div>
 
     </div>
 
     <div id="bot">
+
+        <div id="listclient">
+
+            <h2> 🍕 List of clients 🍕 </h2>
+
+            @foreach (Client client in Luigi.clients)
+            {
+                <div class="client">
+                    
+                    <div class="clientinfos">
+                        @client.Id - @client.Name @client.FirstName @client.Address @client.Phone
+                    </div>
+
+
+                    @* <div class="clientbtn">
+                        <button class="btn" @onclick="() => SelectClient(client)">Select</button>
+                            <button class="btn" @onclick="() => DeleteClient(client)">Delete</button>
+                    </div> *@
+
+                </div>
+                    
+            }
+
+        </div>
 
     </div>
 
@@ -102,6 +182,12 @@
 
     Client client = new Client();
 
+    int role = 0;
+
+    bool onlist = false;
+
+    bool personnel = false;
+
 
     void AddClient()
     {
@@ -113,6 +199,45 @@
         client.Phone = "";
 
         Luigi.PrintUsers(Luigi.clients);
+    }
+
+    void addPersonnel()
+    {
+        if (role == 0)
+        {
+            Luigi.CreateDeliver(client.Name, client.FirstName);
+        }
+        else
+        {
+            Luigi.CreateCommis(client.Name, client.FirstName);
+        }
+
+        client.Name = "";
+        client.FirstName = "";
+
+        
+    }
+
+    void change(){
+        onlist = !onlist;
+    }
+
+    void personnels(){
+        personnel = !personnel;
+    }
+
+    object start(){
+
+        @* Console.WriteLine("start"); *@
+
+        Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
+
+        Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+
+        @* Console.WriteLine("done"); *@
+
+        return null;
+
     }
 
 
