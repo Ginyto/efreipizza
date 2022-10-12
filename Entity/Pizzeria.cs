@@ -107,10 +107,31 @@ public class Pizzeria
 
         public Client CreateClient(string name, string firstname, string address, string phone)
         {
-            Client client = new Client(clients.Count + 1, name, firstname, address, phone);
-            clients.Add(client);
+            if (clients.Count == 0)
+            {
+                Client c = new Client(1, name, firstname, address, phone);
+                clients.Add(c);
+                return c;
+            }
+            else
+            {
+                foreach (Client c in clients)
+                {
+                    if (c.Phone == phone)
+                    {
+                        Console.WriteLine("Client already exist");
+                    }
+                    else
+                    {
+                        Client c1 = new Client(clients.Count + 1, name, firstname, address, phone);
+                        clients.Add(c1);
+                        return c1;
+                    }
+                }
 
-            return client;
+            }
+
+            return null;
         }
 
         public Commis CreateCommis(string name, string firstname)

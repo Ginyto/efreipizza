@@ -9,14 +9,7 @@
     <div id="top">
         <h1> ❇️ @Luigi.Name ❇️ </h1>
 
-        @start()
-
-        <div>
-            @foreach (Commis commis in Luigi.commiss)
-            {
-                <div>@commis.Id-@commis.Name-@commis.FirstName</div>
-            }
-        </div>
+        @refresh()
 
         <div>Stats -> @Luigi.PrintPizzeria()</div>
     </div>
@@ -24,8 +17,8 @@
     <div id="body">
 
         <div id="searchbar">
-            <input type="text" class="saisieInput" placeholder="Phone number client" />
-            <button @onclick="change" class="btn">altern</button>
+            <input type="text" class="saisieInput" placeholder="Phone number client" @bind="search" @bind:event="oninput"/>
+            @* <button @onclick="change" class="btn">altern</button> *@
         </div>
 
         <div id="client">
@@ -40,14 +33,14 @@
 
                         <button class="btn" @onclick="personnels"> Personnels </button>
 
-                        <h2> @if (personnel) { <span> 🍕 New Client 🍕</span> } else { <span> ★ New Personnal ★</span> } </h2>
+                        <h2> @if (!personnel) { <span> 🍕 New Client 🍕</span> } else { <span> 👤 New Personnal 👤</span> } </h2>
                         
 
                         <input type="text" class="saisieInput" placeholder="Name" @bind="client.Name" @bind:event="oninput">
 
                         <input type="text" class="saisieInput" placeholder="Firstname" @bind="client.FirstName" @bind:event="oninput">
 
-                        @if (personnel)
+                        @if (!personnel)
                         {
                             <input type="text" class="saisieInput" placeholder="Address" @bind="client.Address" @bind:event="oninput">
 
@@ -55,7 +48,7 @@
 
                             
 
-                            <button class="btn" @onclick="addPersonnel">Add client</button>
+                            <button class="btn" @onclick="AddClient">Add client</button>
                         }
                         else
                         {
@@ -77,6 +70,13 @@
             @if (onlist)
             {
                 <div id="takeorder">
+
+                    <div id="CurrentClient">
+
+                        <div>@client.Name</div>
+                        <div>@client.FirstName</div>
+                        
+                    </div>
                     
                     <div id="saisie">
     
@@ -124,19 +124,43 @@
 
                             <button class="btn plus">+</button>
 
+                            
+
                         </div>
 
+                        <div id="direction">
+                                <select class="saisieselect">
+
+                                    @foreach (Commis element in Luigi.commiss)
+                                    {
+                                        <option value="@element.Id">@element.Id @element.Name @element.FirstName</option>
+                                    }
+
+                                </select>
+
+                                <select class="saisieselect">
+
+                                    @foreach (Deliver element in Luigi.delivers)
+                                    {
+                                        <option value="@element.Id">@element.Id @element.Name @element.FirstName</option>
+                                    }
+
+                                </select>
+                        </div>
 
     
                         <button class="btn">Take order</button>
     
                     </div>
-                </div>
 
-                <div id="currentOrder">
+                    <div id="CurrentOrder">
+
+                        <div>@client.Name</div>
+                        <div>@client.FirstName</div>
                     
-                </div>
+                    </div>
 
+                </div>
             }
 
             
@@ -188,6 +212,30 @@
 
     bool personnel = false;
 
+    string search = "";
+
+
+    void SearchClient(){
+
+        Console.WriteLine("SearchClient : -> " + search);
+            
+            foreach (Client c in Luigi.clients)
+            {
+                if (c.Phone == search)
+                {
+                    onlist = true;
+                    client = c;
+                }
+                else
+                {
+                    onlist = false;
+                }
+            }
+        
+        Console.WriteLine("Eureka" + onlist);
+    
+    }
+
 
     void AddClient()
     {
@@ -226,13 +274,17 @@
         personnel = !personnel;
     }
 
-    object start(){
+    object refresh(){
 
         @* Console.WriteLine("start"); *@
+
+        Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
         Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
         Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+
+        SearchClient();
 
         @* Console.WriteLine("done"); *@
 
