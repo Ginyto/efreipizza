@@ -140,12 +140,15 @@ public class Pizzeria
         }
 
 
-        public void PrintPizzeria()
+        public string PrintPizzeria()
         {
-            Console.WriteLine($"Pizzeria: {Name}");
-            Console.WriteLine($"Clients: {clients.Count}");
-            Console.WriteLine($"Delivers: {delivers.Count}");
-            Console.WriteLine($"Commiss: {commiss.Count}");
+            // Console.WriteLine($"Pizzeria: {Name}");
+            // Console.WriteLine($"Clients: {clients.Count}");
+            // Console.WriteLine($"Delivers: {delivers.Count}");
+            // Console.WriteLine($"Commiss: {commiss.Count}");
+            // Console.WriteLine($"Commands: {commands.Count}");
+
+            return $"Clients: {clients.Count} \nDelivers: {delivers.Count} \nCommiss: {commiss.Count} \nCommands: {commands.Count}";
         }
 
         public void UpdateUser(ArrayList users, int id)
@@ -226,34 +229,34 @@ public class Pizzeria
 
 
 
-    namespace Projet {
-        public class Program
-        {
+    // namespace Projet {
+    //     public class Program
+    //     {
 
-            public static void Main(string[] args)
-            {
+    //         public static void Main(string[] args)
+    //         {
 
-                Pizzeria Luigi = new Pizzeria("Chez Luigi");
+    //             Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-                Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
+    //             Client Bowser = Luigi.CreateClient("Bowser", "King", "Paris", "06");
 
-                Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
+    //             Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
-                Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+    //             Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
 
-                Console.WriteLine(Luigi.LaCarte());
+    //             Console.WriteLine(Luigi.LaCarte());
 
-                Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
+    //             Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
 
-                Luigi.TakeOrder(command, 1, "M", 2, "pizza");
-                Luigi.TakeOrder(command, 2, "L", 1, "pizza");
+    //             Luigi.TakeOrder(command, 1, "M", 2, "pizza");
+    //             Luigi.TakeOrder(command, 2, "L", 1, "pizza");
 
-                Luigi.TakeOrder(command, 1, "XL", 1, "drink");
-                Luigi.TakeOrder(command, 2, "XL", 1, "drink");
+    //             Luigi.TakeOrder(command, 1, "XL", 1, "drink");
+    //             Luigi.TakeOrder(command, 2, "XL", 1, "drink");
 
-                command.PrintCommand();
+    //             command.PrintCommand();
 
-            }
+    //         }
 
-        }
-    }
+    //     }
+    // }

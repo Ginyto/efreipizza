@@ -3,16 +3,96 @@
 
 <PageTitle>Efrei Pizza</PageTitle>
 
-<h1 > ❇️ @Luigi.Name ❇️ </h1>
+<div id="zone">
+
+    <div id="top">
+        <h1> ❇️ @Luigi.Name ❇️ </h1>
+
+        <div>Stats -> @Luigi.PrintPizzeria() </div>
+    </div>
+
+    <div id="body">
+
+        <div id="searchbar">
+            <input type="text" class="saisieInput" placeholder="Phone number client" />
+        </div>
+
+        <div id="client">
+
+            <div id="addclient">
+
+                <div id="saisie">
+
+                    <h2> 🍕 Add a client 🍕 </h2>
+
+                    <input type="text" class="saisieInput" placeholder="Name" @bind="client.Name" @bind:event="oninput">
+
+                    <input type="text" class="saisieInput" placeholder="Firstname" @bind="client.FirstName" @bind:event="oninput">
+
+                    <input type="text" class="saisieInput" placeholder="Address" @bind="client.Address" @bind:event="oninput">
+
+                    <input type="text" class="saisieInput" placeholder="Phone" @bind="client.Phone" @bind:event="oninput">
+
+                    <button class="btn" @onclick="AddClient">Add client</button>
+
+                </div>
+
+            </div>
+
+            <div id="takeorder">
+                    
+                    <div id="saisie">
+    
+                        <h2> 🍕 Take an order 🍕 </h2>
+    
+                        <div class="select">
+                            <select class="saisieselect">
+                                <option value="1">🍕 Margherita </option>
+                                <option value="2">🍕 Napolitaine </option>
+                                <option value="3">🍕 Calzone </option>
+                                <option value="4">🍕 Reine </option>
+                            </select>
+
+                            <select class="saisieselect">
+                                <option value="1">Small 😀</option>
+                                <option value="2">Medium 😃</option>
+                                <option value="3">Large 😄</option>
+                                <option value="4">Extra Large 😋</option>
+                            </select>
+                        </div>
+
+                        <div class="select">
+                            <select class="saisieselect">
+                                <option value="1">🥤 Coca </option>
+                                <option value="2">🥤 Fanta </option>
+                                <option value="3">🥤 Sprit </option>
+                                <option value="4">🥤 7up </option>
+                            </select>
+
+                            <select class="saisieselect">
+                                <option value="1">Small 😀</option>
+                                <option value="2">Medium 😃</option>
+                                <option value="3">Large 😄</option>
+                                <option value="4">Extra Large 😋</option>
+                            </select>
+                        </div>
 
 
-@* <div>Stats : @Luigi.PrintPizzeria() </div> *@
+    
+                        <button class="btn">Take order</button>
+    
+                    </div>
+            </div>
 
+        </div>
 
-Name : @name
+    </div>
 
-<input type="text" @bind="name" @bind:event="oninput">
-<button @onclick="erased">erased</button>
+    <div id="bot">
+
+    </div>
+
+</div>
 
 
 
@@ -20,16 +100,20 @@ Name : @name
 
     Pizzeria Luigi = new Pizzeria("Chez Luigi");
 
-    public string name { get; set; } = " ";
+    Client client = new Client();
 
-    public void erased()
 
+    void AddClient()
     {
+        Luigi.CreateClient(client.Name, client.FirstName, client.Address, client.Phone);
 
-        name = " ";
+        client.Name = "";
+        client.FirstName = "";
+        client.Address = "";
+        client.Phone = "";
 
+        Luigi.PrintUsers(Luigi.clients);
     }
-
 
 
 

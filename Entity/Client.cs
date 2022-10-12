@@ -1,10 +1,10 @@
 using System;
     public class Client : User
     {
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public string Date { get; set; }
-        public int Score { get; set; }
+        public string Address { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Date { get; set; } = "";
+        public int Score { get; set; } = 0;
         
 
         public Client(int id, string name, string firstname,string address, string phone) : base(id, firstname, name)
@@ -12,8 +12,9 @@ using System;
             Address = address;
             Phone = phone;
             Date = DateTime.Now.ToString("dd/MM/yyyy");
-            Score = 0;
         }
+
+        public Client(){}
 
         public override void UpdateUser()
         {
