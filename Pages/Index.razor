@@ -84,8 +84,8 @@
 
                     <div id="CurrentClient">
 
-                        <div>@client.Name</div>
-                        <div>@client.FirstName</div>
+                        <div>@CurrentClient.Name</div>
+                            <div>@CurrentClient.FirstName</div>
                         
                     </div>
                     
@@ -275,6 +275,8 @@
 
     Client client = new Client();
 
+    Client CurrentClient = new Client();
+
     Commis commis = new Commis();
 
     Deliver deliver = new Deliver();
@@ -345,6 +347,9 @@
                 if (c.Phone == search)
                 {
                     onlist = true;
+
+                    CurrentClient = c;
+
 
                 }
                 else
