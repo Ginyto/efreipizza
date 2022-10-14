@@ -18,6 +18,11 @@ using System;
 
         }
 
+        public Commis()
+        {
+
+        }
+
         public override void UpdateUser()
         {
 

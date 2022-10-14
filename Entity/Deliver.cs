@@ -8,6 +8,11 @@ using System;
         {
 
         }
+
+        public Deliver()
+        {
+
+        }
         public override void UpdateUser()
         {
 

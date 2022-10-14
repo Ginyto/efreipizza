@@ -5,6 +5,8 @@ public class Pizzeria
 
         public string Name { get; set; }
 
+        public Command CurrentCommand = new Command();
+
         /// <summary>
         /// Liste des clients
         /// </summary>
@@ -40,6 +42,7 @@ public class Pizzeria
         /// </summary>
         /// <returns></returns>
         public ArrayList drinks = new ArrayList();
+
 
 
         /// <summary>
@@ -162,13 +165,6 @@ public class Pizzeria
             return null;
         }
 
-        public Command CreateCommand(Client client, Commis commis, Deliver deliver)
-        {
-            Command command = new Command(commands.Count + 1, client, commis, deliver);
-
-            return command;
-        }
-
 
 
         public bool inside(ArrayList list, string name, string firstname){
@@ -256,60 +252,8 @@ public class Pizzeria
 
         }
 
-        public Pizza PizzaById(int id)
-        {
-            return (Pizza) pizzas[id - 1];
+        
 
-        }
-
-        public Drink DrinkById(int id)
-        {
-            return (Drink) drinks[id - 1];
-
-        }
-
-        public void TakeOrder(Command command, int IdItem, string size, string itemtype) {
-
-            if (itemtype == "pizza")
-            {
-                
-                PizzaById(IdItem).Size = size;
-
-                command.addPizzas(PizzaById(IdItem));
-                
-            }
-            else if (itemtype == "drink")
-            {
-                
-                DrinkById(IdItem).Size = size;
-
-                command.addDrinks(DrinkById(IdItem));
-                
-            }
-
-        }
-
-        public void RemoveOrder(Command command, int IdItem, string size,string itemtype)
-        {
-
-            if (itemtype == "pizza")
-            {
-                
-                PizzaById(IdItem).Size = size;
-
-                command.delPizzas(PizzaById(IdItem));
-                
-            }
-            else if (itemtype == "drink")
-            {
-
-                DrinkById(IdItem).Size = size;
-
-                command.delDrinks(DrinkById(IdItem));
-                
-            }
-
-        }
 
 
     }

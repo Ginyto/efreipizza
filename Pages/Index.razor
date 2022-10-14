@@ -123,10 +123,10 @@
                                 <option value="1">🥤 Coca </option>
                                 <option value="2">🥤 Fanta </option>
                                 <option value="3">🥤 Sprit </option>
-                                <option value="4">🥤 7up </option>
+                                <option value="4">🥤 Eau </option>
                             </select>
 
-                                <select class="saisieselect" @bind="choiceDrinkSize" @bind:event="oninput">>
+                            <select class="saisieselect" @bind="choiceDrinkSize" @bind:event="oninput">
                                 <option value="S">Small 😀</option>
                                 <option value="M">Medium 😃</option>
                                 <option value="L">Large 😄</option>
@@ -135,25 +135,36 @@
 
                             <button class="btn plus" @onclick="addDrink">+</button>
 
-
-
                         </div>
 
                         <div id="direction">
-                                <select class="saisieselect">
+                                    <select class="saisieselect" @bind="commisId" @bind:event="oninput">
 
                                     @foreach (Commis element in Luigi.commiss)
                                     {
-                                        <option value="@element.Id">@element.Id @element.Name @element.FirstName</option>
+                                        <option value="@element.Id"> @element.Id @element.Name @element.FirstName  </option>
+
+                                        if (element.Id == commisId)
+                                        {
+                                            commis = element;
+                                        }
+
+
+
                                     }
 
                                 </select>
 
-                                <select class="saisieselect">
+                                <select class="saisieselect" @bind="deliverId" @bind:event="oninput">
 
                                     @foreach (Deliver element in Luigi.delivers)
                                     {
                                         <option value="@element.Id">@element.Id @element.Name @element.FirstName</option>
+
+                                        if (element.Id == deliverId)
+                                        {
+                                            deliver = element;
+                                        }
                                     }
 
                                 </select>
@@ -166,7 +177,7 @@
 
                     <div id="CurrentOrder">
 
-                        <div>💵 = @command.Price$</div>
+                        <div>💵 = @Luigi.CurrentCommand.Price$</div>
 
                         <div id="item">
                             
@@ -174,36 +185,48 @@
                             
                                 🍕Pizzas🍕
 
-                                @foreach (Pizza p in command.Pizzas)
+                                @foreach (Pizza p in Luigi.CurrentCommand.Pizzas)
                                 {
                                     <div class="pizzas">
-                                        <div>@p.Name </div> :
-                                        <div>@p.Size </div> : 
-                                        <div>@p.Price </div>$
+                                        <div class="pizzas">@p.Name </div> :
+                                        <div class="pizzas">@p.Size </div> : 
+                                        <div class="pizzas">@p.Price </div>$ 
                                     </div>
                                 }
 
                             </div>
 
-                        <div class="items">
+                            <div class="items">
 
-                            🥤Drinks🥤
+                                🥤Drinks🥤
 
-                            @foreach (Drink d in command.Drinks)
-                            {
-                                <div class="drinks">
-                                    <div>@d.Name </div>-
-                                    <div>@d.Size </div>-
-                                    <div>@d.Price </div>$
-                                </div>
-                            }
+                                @foreach (Drink d in Luigi.CurrentCommand.Drinks)
+                                {
+                                    <div class="drinks">
+                                        <div class="drinks">@d.Name </div>-
+                                        <div class="drinks">@d.Size </div>-
+                                        <div class="drinks">@d.Price </div>$
+                                    </div>
+                                }
+
+                            </div>
 
                         </div>
-                    </div>
 
-                        @command.Time
-                        @command.Date
-                    
+                        <div id="comdel">
+                            <span>  @Luigi.CurrentCommand.Time @Luigi.CurrentCommand.Date </span>
+
+                            @if (commis != null)
+                            {
+                                            <span>  @commis.Name @commis.FirstName</span>
+                            }
+
+                            @if (deliver != null)
+                            {
+                                    <span>@deliver.Name @deliver.FirstName</span>
+                            }
+                        </div>
+
                     </div>
 
                 </div>
@@ -252,7 +275,13 @@
 
     Client client = new Client();
 
-    Command command = new Command();
+    Commis commis = new Commis();
+
+    Deliver deliver = new Deliver();
+
+    int commisId = 1;
+
+    int deliverId = 1;
 
     int role = 0;
 
@@ -272,23 +301,18 @@
 
     void addPizza()
     {
+        Pizza pizza = new Pizza(choicePizza, choicePizzaSize);
 
-        Pizza pizza = Luigi.PizzaById(choicePizza);
-
-        pizza.Size = choicePizzaSize;
-
-        command.CalculatePrice(pizza);
-
-        command.addPizzas(pizza);
-
+        Luigi.CurrentCommand.Pizzas.Add(pizza);
+        Luigi.CurrentCommand.Price += pizza.Price;
 
     }
 
     void delPizza()
     {
-        if (command.Pizzas.Count > 0)
+        if (Luigi.CurrentCommand.Pizzas.Count > 0)
         {
-            Luigi.RemoveOrder(command, choicePizza, choicePizzaSize, "pizza");
+            
             
         }
 
@@ -296,14 +320,18 @@
 
     void addDrink()
     {
-        Luigi.TakeOrder(command, choiceDrink, choiceDrinkSize, "drink");
+        Drink drink = new Drink(choiceDrink, choiceDrinkSize);
+
+        Luigi.CurrentCommand.Drinks.Add(drink);
+        Luigi.CurrentCommand.Price += drink.Price;
+
     }
 
     void delDrink()
     {
-        if (command.Drinks.Count > 0)
+        if (Luigi.CurrentCommand.Drinks.Count > 0)
         {
-            Luigi.RemoveOrder(command, choiceDrink, choiceDrinkSize, "drink");
+            
         }
     }
 
@@ -317,7 +345,7 @@
                 if (c.Phone == search)
                 {
                     onlist = true;
-                    client = c;
+
                 }
                 else
                 {
@@ -378,8 +406,6 @@
         Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
         Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
-
-        Command command = Luigi.CreateCommand(Bowser, Toad, Peach);
 
         SearchClient();
 
