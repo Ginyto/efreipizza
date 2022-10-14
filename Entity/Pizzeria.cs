@@ -107,28 +107,18 @@ public class Pizzeria
 
         public Client CreateClient(string name, string firstname, string address, string phone)
         {
-            if (clients.Count == 0)
+
+            if (inside(phone))
             {
-                Client c = new Client(1, name, firstname, address, phone);
-                clients.Add(c);
-                return c;
+                // Console.WriteLine(name + " " + firstname + " is already a client");
             }
             else
             {
-                foreach (Client c in clients)
-                {
-                    if (c.Phone == phone)
-                    {
-                        Console.WriteLine("Client already exist");
-                    }
-                    else
-                    {
-                        Client c1 = new Client(clients.Count + 1, name, firstname, address, phone);
-                        clients.Add(c1);
-                        return c1;
-                    }
-                }
+                // Console.WriteLine(name + " " + firstname + " is now a client");
+                Client client = new Client(clients.Count + 1, name, firstname, address, phone);
+                clients.Add(client);
 
+                return client;
             }
 
             return null;
@@ -137,30 +127,17 @@ public class Pizzeria
         public Commis CreateCommis(string name, string firstname)
         {
 
-            if (commiss.Count == 0)
+            if (inside(commiss, name, firstname))
             {
+                // Console.WriteLine(name + " " + firstname + " is already a commis");
+            }
+            else
+            {
+                // Console.WriteLine(name + " " + firstname + " is now a commis");
                 Commis commis = new Commis(commiss.Count + 1, name, firstname);
                 commiss.Add(commis);
 
                 return commis;
-            }
-            else
-            {
-                foreach (Commis c in commiss)
-                {
-                    if (c.Name == name && c.FirstName == firstname)
-                    {
-                        Console.WriteLine("Commis already exist");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Commis created");
-                        Commis commis = new Commis(commiss.Count + 1, name, firstname);
-                        commiss.Add(commis);
-
-                        return commis;
-                    }
-                }
             }
 
             return null;
@@ -168,34 +145,64 @@ public class Pizzeria
 
         public Deliver CreateDeliver(string name, string firstname)
         {
-            if (delivers.Count == 0)
+            
+            if(inside(delivers, name, firstname))
             {
+                // Console.WriteLine(name + " " + firstname + " is already a deliver");
+            }
+            else
+            {
+                // Console.WriteLine(name + " " + firstname + " is now a deliver");
                 Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
                 delivers.Add(deliver);
 
                 return deliver;
             }
-            else
-            {
-                foreach (Deliver c in delivers)
-                {
-                    if (c.Name == name && c.FirstName == firstname)
-                    {
-                        Console.WriteLine("deliver already exist");
-                    }
-                    else
-                    {
-                        Console.WriteLine("deliver created");
-                        Deliver deliver = new Deliver(delivers.Count + 1, name, firstname);
-                        delivers.Add(deliver);
-
-                        return deliver;
-                    }
-                }
-            }
 
             return null;
         }
+
+        public Command CreateCommand(Client client, Commis commis, Deliver deliver)
+        {
+            Command command = new Command(commands.Count + 1, client, commis, deliver);
+
+            return command;
+        }
+
+
+
+        public bool inside(ArrayList list, string name, string firstname){
+
+            foreach (User user in list)
+            {
+                // Console.WriteLine(user.Id + user.Name + " " + user.FirstName + " ??? " + name + " " + firstname);
+                if (user.Name == name && user.FirstName == firstname)
+                {
+                    // Console.WriteLine(user.Name + " " + user.FirstName + " is already here");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool inside(string phone)
+        {
+
+            foreach (Client user in clients)
+            {
+                
+                if (user.Phone == phone)
+                {
+                    // Console.WriteLine(user.Name + " " + user.FirstName + " is already here");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        
 
 
         public void PrintUsers(ArrayList users)
@@ -261,35 +268,47 @@ public class Pizzeria
 
         }
 
-        public void TakeOrder(Command command, int IdItem, string size, int quantity, string itemtype) {
+        public void TakeOrder(Command command, int IdItem, string size, string itemtype) {
 
             if (itemtype == "pizza")
             {
-                for (int i = 0; i < quantity; i++)
-                {
-                    PizzaById(IdItem).Size = size;
+                
+                PizzaById(IdItem).Size = size;
 
-                    command.addPizzas(PizzaById(IdItem));
-                }
+                command.addPizzas(PizzaById(IdItem));
+                
             }
             else if (itemtype == "drink")
             {
-                for (int i = 0; i < quantity; i++)
-                {
-                    DrinkById(IdItem).Size = size;
+                
+                DrinkById(IdItem).Size = size;
 
-                    command.addDrinks(DrinkById(IdItem));
-                }
+                command.addDrinks(DrinkById(IdItem));
+                
             }
 
         }
 
-        public Command CreateCommand(Client client, Commis commis, Deliver deliver)
+        public void RemoveOrder(Command command, int IdItem, string size,string itemtype)
         {
-            Command command = new Command(commands.Count + 1, client, commis, deliver);
-            commands.Add(command);
 
-            return command;
+            if (itemtype == "pizza")
+            {
+                
+                PizzaById(IdItem).Size = size;
+
+                command.delPizzas(PizzaById(IdItem));
+                
+            }
+            else if (itemtype == "drink")
+            {
+
+                DrinkById(IdItem).Size = size;
+
+                command.delDrinks(DrinkById(IdItem));
+                
+            }
+
         }
 
 

@@ -7,7 +7,7 @@ using System;
         public int Score { get; set; } = 0;
         
 
-        public Client(int id, string name, string firstname,string address, string phone) : base(id, firstname, name)
+        public Client(int id, string name, string firstname,string address, string phone) : base(id, name, firstname)
         {
             Address = address;
             Phone = phone;

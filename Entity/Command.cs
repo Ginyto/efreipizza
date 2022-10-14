@@ -5,8 +5,8 @@ using System.Collections;
     public class Command
     {
         public int Id { get; set; }
-        public string Time { get; set; }
-        public string Date { get; set; }
+        public string Time { get; set; } = DateTime.Now.ToString("HH:mm:ss");
+        public string Date { get; set; } = DateTime.Now.ToString("dd/MM/yyyy");
         public Commis Commis { get; set; }
         public Client Client { get; set; }
         public Deliver Deliver { get; set; }
@@ -16,7 +16,7 @@ using System.Collections;
         public int State { get; set; } = 0; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
 
 
-        public Command(int Id)
+        public Command()
         {
 
         }
@@ -24,8 +24,6 @@ using System.Collections;
         public Command(int id, Client client, Commis commis, Deliver deliver)
         {
             Id = id;
-            Time = DateTime.Now.ToString("HH:mm:ss");
-            Date = DateTime.Now.ToString("dd/MM/yyyy");
 
             Commis = commis;
             Client = client;
@@ -43,6 +41,21 @@ using System.Collections;
 
         }
 
+        public void delPizzas(Pizza pizza)
+        {
+            CalculatePrice(pizza);
+
+            Pizzas.Remove(pizza);
+
+            Price -= pizza.Price;
+
+            if (Price < 0)
+            {
+                Price = 0;
+            }
+        }
+
+
         public void addDrinks(Drink drink)
         {
             CalculatePrice(drink);
@@ -52,6 +65,21 @@ using System.Collections;
             Price += drink.Price;
 
         }
+
+        public void delDrinks(Drink drink)
+        {
+            CalculatePrice(drink);
+
+            Drinks.Remove(drink);
+
+            Price -= drink.Price;
+
+            if (Price < 0)
+            {
+                Price = 0;
+            }
+        }
+        
 
         public void CalculatePrice(Product product)
         {
