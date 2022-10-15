@@ -34,10 +34,11 @@ h1 {
 }
 
 #top{
+    width: 100%;
     display: flex;
     flex-direction: column;
 
-    /* border: pink solid 2px; */
+    border: pink solid 2px;
     border-radius: 10px;
 
     padding: 1vh;
@@ -148,11 +149,10 @@ h1 {
 #bot {
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* border: rgb(255, 0, 0) solid 2px; */
+    align-items: stretch;
+    border: rgb(255, 0, 0) solid 2px;
     border-radius: 10px;
-    padding: 1vh;
+    padding: 1vh;   
 }
 
 #listclient{
@@ -162,7 +162,7 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* border: rgb(0, 47, 255) solid 2px; */
+    border: rgb(0, 47, 255) solid 2px;
     border-radius: 10px;
     padding: 1vh;
 }
@@ -174,7 +174,7 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* border: rgb(0, 109, 44) solid 2px; */
+    border: rgb(0, 109, 44) solid 2px;
     border-radius: 10px;
     padding: 1vh;
 }
@@ -185,7 +185,7 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* border: rgb(255, 221, 0) solid 2px; */
+    border: rgb(255, 221, 0) solid 2px;
     border-radius: 10px;
     padding: 1vh;
 }
@@ -221,7 +221,7 @@ h1 {
     flex-direction: column;
     
     align-items: center;
-    /* border: rgb(255, 0, 255) solid 2px; */
+    border: rgb(255, 0, 255) solid 2px;
     border-radius: 10px;
     padding: 1vh;
 }
@@ -255,7 +255,7 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* border: rgb(255, 0, 0) solid 2px; */
+    border: rgb(255, 0, 0) solid 2px;
     border-radius: 10px;
     padding: 1vh;
     overflow: overlay;
@@ -266,6 +266,16 @@ h1 {
 }
 
 #comdel{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: rgb(25, 25, 71) solid 2px; */
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+.stattiltel{
     width: 100%;
     display: flex;
     justify-content: space-around;

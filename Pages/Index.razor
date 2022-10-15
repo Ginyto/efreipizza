@@ -241,7 +241,9 @@
 
         <div id="listclient">
 
-            <h2> 🍕 List of clients 🍕 </h2>
+            <div id="stattiltle">
+                <h2> 🍕 List of clients 🍕 </h2>
+            </div>
 
             @foreach (Client client in Luigi.clients)
             {
@@ -259,7 +261,9 @@
 
         <div id="listcommand">
 
-            <h2> 🍕 List of commands 🍕 </h2>
+            <div class="stattiltle">
+                <h2> 🍕 List of commands 🍕 </h2>
+            </div>
 
             @foreach (Command command in Luigi.commands)
             {
@@ -478,7 +482,7 @@
 
         Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
-        Deliver Peach = Luigi.CreateDeliver("Princess", "Princess");
+        Deliver Peach = Luigi.CreateDeliver("Princess", "Peach");
 
         SearchClient();
 
