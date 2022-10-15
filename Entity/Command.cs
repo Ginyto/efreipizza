@@ -13,7 +13,7 @@ using System.Collections;
         public ArrayList Pizzas = new ArrayList();
         public ArrayList Drinks = new ArrayList();
         public double Price { get; set; } = 0.00;
-        public int State { get; set; } = 0; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
+        public string State { get; set; } = "🤌🏽"; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
 
 
         public Command()
@@ -31,28 +31,9 @@ using System.Collections;
 
         }
 
-
-
         public void PrintCommand()
         {    
             Console.WriteLine($"Command number : {Id}");
-
-            switch(State) 
-            {
-                case 0:
-                    Console.WriteLine($"State : In preparation");
-                    break;
-                case 1:
-                    Console.WriteLine($"State : In delivery");
-                    break;
-                case 2:
-                    Console.WriteLine($"State : Delivered");
-                    break;
-
-                default : 
-                    Console.WriteLine($"Lost command");
-                    break;
-            }
 
             Console.WriteLine($"------------------------------------------");
             Console.WriteLine($"Time : {Time}");

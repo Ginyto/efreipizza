@@ -171,7 +171,7 @@
                         </div>
 
     
-                        <button class="btn">Take order</button>
+                        <button class="btn" @onclick="TakeOrder">Take order</button>
     
                     </div>
 
@@ -213,7 +213,7 @@
 
                         </div>
 
-                        <div id="comdel">
+                        @* <div id="comdel">
                             <span>  @Luigi.CurrentCommand.Time @Luigi.CurrentCommand.Date </span>
 
                             @if (commis != null)
@@ -225,7 +225,7 @@
                             {
                                     <span>@deliver.Name @deliver.FirstName</span>
                             }
-                        </div>
+                        </div> *@
 
                     </div>
 
@@ -251,17 +251,28 @@
                         @client.Id - @client.Name @client.FirstName @client.Address @client.Phone
                     </div>
 
-
-                    @* <div class="clientbtn">
-                        <button class="btn" @onclick="() => SelectClient(client)">Select</button>
-                            <button class="btn" @onclick="() => DeleteClient(client)">Delete</button>
-                    </div> *@
-
                 </div>
                     
             }
 
         </div>
+
+        <div id="listcommand">
+
+            <h2> 🍕 List of commands 🍕 </h2>
+
+            @foreach (Command command in Luigi.commands)
+            {
+                <div class="command">
+                    <div class="commandinfos">
+                        @command.Id - @command.Price$ - @command.Time @command.Date - 👤@command.Client.Name @command.Client.FirstName 🧑‍🍳@command.Commis.Name @command.Commis.FirstName 🚲@command.Deliver.Name @command.Deliver.FirstName
+                            <button class="btn" @onclick="CookingProcess">@process</button>
+                    </div>
+                </div>
+            }
+        
+        </div>
+
 
     </div>
 
@@ -301,6 +312,39 @@
 
     string search = "";
 
+    string process = "Ready to Cook";
+
+
+    public async Task CookingProcess()
+    {
+        
+        process = "Cooking";
+        await Task.Delay(3000);
+        
+        process = "Ready to Deliver";
+        StateHasChanged();
+        await Task.Delay(1000);
+
+        process = "Delivering";
+        StateHasChanged();
+        await Task.Delay(3000);
+        
+        process = "Delivered";
+        StateHasChanged();
+        await Task.Delay(1000);
+        
+        process = "Ready to Pay";
+        StateHasChanged();
+        await Task.Delay(1000);
+
+
+        process = "Paid";
+        StateHasChanged();
+        await Task.Delay(1000);
+
+
+    }
+
     void addPizza()
     {
         Pizza pizza = new Pizza(choicePizza, choicePizzaSize);
@@ -310,11 +354,31 @@
 
     }
 
+    void TakeOrder()
+    {
+        if (Luigi.CurrentCommand.Price > 0)
+        {
+            Luigi.CurrentCommand.Client = CurrentClient;
+            Luigi.CurrentCommand.Commis = commis;
+            Luigi.CurrentCommand.Deliver = deliver;
+
+            Luigi.commands.Add(Luigi.CurrentCommand);
+
+            Luigi.CurrentCommand.Id = Luigi.commands.Count;
+
+            Luigi.CurrentCommand = new Command();
+        }
+    }
+
     void delPizza()
     {
         if (Luigi.CurrentCommand.Pizzas.Count > 0)
         {
-            
+            Pizza pizza = (Pizza) Luigi.CurrentCommand.Pizzas[Luigi.CurrentCommand.Pizzas.Count - 1];
+
+            Luigi.CurrentCommand.Pizzas.RemoveAt(Luigi.CurrentCommand.Pizzas.Count - 1);
+
+            Luigi.CurrentCommand.Price -= pizza.Price;
             
         }
 
@@ -333,7 +397,11 @@
     {
         if (Luigi.CurrentCommand.Drinks.Count > 0)
         {
-            
+            Drink drink = (Drink)Luigi.CurrentCommand.Drinks[Luigi.CurrentCommand.Drinks.Count - 1];
+
+            Luigi.CurrentCommand.Drinks.RemoveAt(Luigi.CurrentCommand.Drinks.Count - 1);
+
+            Luigi.CurrentCommand.Price -= drink.Price;
         }
     }
 
@@ -410,7 +478,7 @@
 
         Commis Toad = Luigi.CreateCommis("Mushroom", "Toad");
 
-        Deliver Peach = Luigi.CreateDeliver("Peach", "Princess");
+        Deliver Peach = Luigi.CreateDeliver("Princess", "Princess");
 
         SearchClient();
 
