@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-class Client {
-
-    public string Name { get; set; }
-    public string FirstName { get; set; }
-    public int OrderNumber { get; set; }
-    public string DateOfFirstCommand { get; set; }
 
 
-
-    public Client(string name, string firstname, int ordernumber, string dateoffirstcommand)
-=======
 namespace Projet {
 
     public class Client : User
->>>>>>> 8d8eb00f5b39190d45cfe96a5659f926c675c638
+
     {
         public string Address { get; set; }
         public string Phone { get; set; }
@@ -91,9 +81,6 @@ namespace Projet {
 
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 8d8eb00f5b39190d45cfe96a5659f926c675c638
 }
 
