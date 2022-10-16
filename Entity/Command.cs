@@ -13,7 +13,7 @@ using System.Collections;
         public ArrayList Pizzas = new ArrayList();
         public ArrayList Drinks = new ArrayList();
         public double Price { get; set; } = 0.00;
-        public string State { get; set; } = "🤌🏽"; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
+        public string State { get; set; } = "Ready To Cook ⚙️"; //state 0 = prise en charge commande , 1 = préparation commande , 2 = en livraison , 3 = livrée
 
 
         public Command()

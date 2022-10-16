@@ -268,9 +268,11 @@
             @foreach (Command command in Luigi.commands)
             {
                 <div class="command">
+
                     <div class="commandinfos">
                         @command.Id - @command.Price$ - @command.Time @command.Date - 👤@command.Client.Name @command.Client.FirstName 🧑‍🍳@command.Commis.Name @command.Commis.FirstName 🚲@command.Deliver.Name @command.Deliver.FirstName
-                            <button class="btn" @onclick="CookingProcess">@process</button>
+                        
+                        <button class="btn" @onclick="() => CookingProcess(command.Id)">@command.State</button>
                     </div>
                 </div>
             }
@@ -316,37 +318,43 @@
 
     string search = "";
 
-    string process = "Ready to Cook";
 
-
-    public async Task CookingProcess()
+    public async Task CookingProcess(int id)
     {
+
+        if(Luigi.commands.Count > 0){
+
+            Command commandToCook = (Command) Luigi.commands[id-1];
+
+            @* Console.WriteLine(commandToCook.Price + "$ " + commandToCook.Time + " " + commandToCook.Date + " " + commandToCook.Client.Name + " " + commandToCook.Client.FirstName + " " + commandToCook.Commis.Name + " " + commandToCook.Commis.FirstName + " " + commandToCook.Deliver.Name + " " + commandToCook.Deliver.FirstName); *@
+
+            if (commandToCook.State == "Ready To Cook ⚙️")
+            {
+                
+                await Task.Delay(1000);
+                commandToCook.State = "Cooked ✅ ";
+                StateHasChanged();
+            
+                await Task.Delay(3000);
+                commandToCook.State = "Ready To Deliver ⚙️";
+                StateHasChanged();
+            
+
+                await Task.Delay(3000);
+                commandToCook.State = "Delivered ✅";
+                StateHasChanged();
+            
+                await Task.Delay(3000);
+                commandToCook.State = "Ready To Pay ⚙️";
+                StateHasChanged();
+            
+                await Task.Delay(3000);
+                commandToCook.State = "Paid ✅";
+                StateHasChanged();
+            }
         
-        process = "Cooking";
-        await Task.Delay(3000);
-        
-        process = "Ready to Deliver";
-        StateHasChanged();
-        await Task.Delay(1000);
-
-        process = "Delivering";
-        StateHasChanged();
-        await Task.Delay(3000);
-        
-        process = "Delivered";
-        StateHasChanged();
-        await Task.Delay(1000);
-        
-        process = "Ready to Pay";
-        StateHasChanged();
-        await Task.Delay(1000);
-
-
-        process = "Paid";
-        StateHasChanged();
-        await Task.Delay(1000);
-
-
+        }
+    
     }
 
     void addPizza()
