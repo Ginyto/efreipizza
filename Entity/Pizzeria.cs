@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
 public class Pizzeria
     {
 
@@ -10,7 +12,7 @@ public class Pizzeria
         /// <summary>
         /// Liste des clients
         /// </summary>
-        public ArrayList clients = new ArrayList();
+        public List<Client>  clients = new List<Client>();
 
         /// <summary>
         /// Listes des livreurs
@@ -56,8 +58,41 @@ public class Pizzeria
             OpenRestaurant();
         }
 
+    public void SortbyPrice(){
 
-        public void OpenRestaurant()
+        // Console.WriteLine("Sort by price");
+
+        clients = clients.OrderBy(x => x.Score).ToList();
+
+        clients.Reverse();
+    }
+
+    public void SortbyName()
+    {
+
+        // Console.WriteLine("Sort by price");
+
+        clients = clients.OrderBy(x => x.Name).ToList();
+    }
+
+    public void SortbyDate()
+    {
+
+        // Console.WriteLine("Sort by price");
+
+        clients = clients.OrderBy(x => x.Date).ToList();
+    }
+
+    public void SortbyCity()
+    {
+
+        // Console.WriteLine("Sort by price");
+
+        clients = clients.OrderBy(x => x.Address).ToList();
+    }
+
+
+    public void OpenRestaurant()
         {
             Pizza p1 = new Pizza("Margherita",7.99, "Tomato sauce, mozzarella, basil");
             pizzas.Add(p1);

@@ -33,6 +33,19 @@ h1 {
 
 }
 
+#tri{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 40vh;
+
+    border: #a7e171 0.5vh solid;
+    border-radius: 1vh;
+
+    overflow: overlay;
+
+}
+
 #top{
     width: 100%;
     display: flex;
@@ -61,7 +74,7 @@ h1 {
     width: 100%;
 }
 
-#client {
+#client{
     width: 100%;
 
     display: flex;

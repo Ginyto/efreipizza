@@ -22,7 +22,7 @@
             }
         </div> *@
 
-        <div>Stats -> @Luigi.PrintPizzeria()</div>
+        <div>Stats -> @Luigi.PrintPizzeria() moyenne Client : @moyenneScore() moyenne Command : @moyenneCommand() </div>
     </div>
 
     <div id="body">
@@ -35,10 +35,37 @@
         <div id="client">
 
             @if (!onlist)
-            {
+            {   
+                <div id="tri">
+                    @if (search == "commis")
+                    {
+                        @foreach (Commis d in Luigi.commiss)
+                        {
+                            int count = 0;
+                            <div class="client">
+                                @d.Name
+                                @d.FirstName
+                                @foreach (Command c in Luigi.commands) { if (c.Commis == d) { count++; } } ➡️ @count
+                            </div>
+                        }
+                    }
+                    @if (search == "deliver")
+                    {
+                        @foreach (Deliver d in Luigi.delivers)
+                        {
+                            int count = 0;
+
+                            <div class="client">
+                                @d.Name
+                                @d.FirstName
+                                @foreach(Command c in Luigi.commands){if(c.Deliver == d){count++;}} ➡️ @count
+                            </div>
+                        }
+                    }
+                </div>
+
                 <div id="addclient">
 
-                    
 
                     <div id="saisie">
 
@@ -71,11 +98,11 @@
                             <button class="btn" @onclick="addPersonnel">Add personnal</button>
                         }
 
-                        
 
                     </div>
 
                 </div>
+
             }
 
             @if (onlist)
@@ -85,7 +112,7 @@
                     <div id="CurrentClient">
 
                         <div>@CurrentClient.Name</div>
-                            <div>@CurrentClient.FirstName</div>
+                        <div>@CurrentClient.FirstName</div>
                         
                     </div>
                     
@@ -250,7 +277,7 @@
                 <div class="client">
                     
                     <div class="clientinfos">
-                        @client.Id - @client.Name @client.FirstName @client.Address @client.Phone
+                        @client.Id - @client.Name @client.FirstName @client.Address @client.Phone @client.Score$
                     </div>
 
                 </div>
@@ -317,9 +344,55 @@
     bool personnel = false;
 
     string search = "";
+    
+
+    void tri(){
+
+        if(search == "best"){
+
+            Luigi.SortbyPrice();
+        }
+        else if(search == "name"){
+
+            Luigi.SortbyName();
+        }
+        if (search == "city")
+        {
+
+            Luigi.SortbyCity();
+        }
+    }
+
+    double moyenneScore(){
+
+        double moyenne = 0;
+
+        foreach (Client element in Luigi.clients)
+        {
+            moyenne += element.Score;
+        }
+
+        moyenne = moyenne / Luigi.clients.Count;
+
+        return moyenne;
+    }
+
+    double moyenneCommand(){
+
+        double moyenne = 0;
+
+        foreach (Command element in Luigi.commands)
+        {
+            moyenne += element.Price;
+        }
+
+        moyenne = moyenne / Luigi.commands.Count;
+
+        return moyenne;
+    }
 
 
-    public async Task CookingProcess(int id)
+    async Task CookingProcess(int id)
     {
 
         if(Luigi.commands.Count > 0){
@@ -373,6 +446,8 @@
             Luigi.CurrentCommand.Client = CurrentClient;
             Luigi.CurrentCommand.Commis = commis;
             Luigi.CurrentCommand.Deliver = deliver;
+
+            CurrentClient.Score += Luigi.CurrentCommand.Price;
 
             Luigi.commands.Add(Luigi.CurrentCommand);
 
@@ -452,7 +527,7 @@
         client.Address = "";
         client.Phone = "";
 
-        Luigi.PrintUsers(Luigi.clients);
+        @* Luigi.PrintUsers(Luigi.clients); *@
     }
 
     void addPersonnel()
@@ -493,6 +568,8 @@
         Deliver Peach = Luigi.CreateDeliver("Princess", "Peach");
 
         SearchClient();
+
+        tri();
 
         @* Console.WriteLine("done"); *@
 

@@ -4,7 +4,7 @@ using System;
         public string Address { get; set; } = "";
         public string Phone { get; set; } = "";
         public string Date { get; set; } = "";
-        public int Score { get; set; } = 0;
+        public double Score { get; set; } = 0;
         
 
         public Client(int id, string name, string firstname,string address, string phone) : base(id, name, firstname)
