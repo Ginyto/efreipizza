@@ -1,11 +1,11 @@
 namespace Projet {
+
     public class Pizza : Product
     {
         public string Description { get; set; }
 
-        public Pizza(int id) : base(id){}
 
-        public Pizza(int id, string name, string size, int price, string description) : base(id, name, size, price)        
+        public Pizza(string name, double price, string description) : base(name, price)        
         {
             Description = description;
         }
@@ -17,6 +17,7 @@ namespace Projet {
             Console.WriteLine($"Size: {Size}");
             Console.WriteLine($"Description: {Description}");
         }
+        
         public override void UpdateProduct()
         {
             Console.WriteLine("\nYou are updating the Product: " + Name + "\nPress enter to skip" + "\n");

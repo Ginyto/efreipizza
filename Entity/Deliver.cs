@@ -5,7 +5,7 @@ namespace Projet
     {
 
 
-        public Deliver(int id) : base(id)
+        public Deliver(int id, string name, string firstname) : base(id, name, firstname)
         {
 
         }

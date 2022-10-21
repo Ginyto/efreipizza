@@ -7,4 +7,8 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Entity
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\lineo\OneDrive\Bureau\efreipizza-1\
+=======
+build_property.ProjectDir = /Users/gianlucca/programmation/efreipizza/
+>>>>>>> 2920dd06124db6ca5e20ae7e768a971f7766b8cd
